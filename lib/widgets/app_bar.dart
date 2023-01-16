@@ -28,14 +28,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             Expanded(
               child: Center(
-                child:
-                    Text('Word', style: Theme.of(context).textTheme.headline6),
+                child: Text('Competições',
+                    style: Theme.of(context).textTheme.headline6),
               ),
             ),
             Expanded(
               child: Center(
-                child:
-                    Text('Word3', style: Theme.of(context).textTheme.headline6),
+                child: Text('Equipas',
+                    style: Theme.of(context).textTheme.headline6),
               ),
             ),
           ],

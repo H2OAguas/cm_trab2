@@ -20,6 +20,41 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
       (BuildContext context, int index) =>
           JogadorCard(jogador: jogadores[index]);
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: const Text("Testing App"),
+  //     ),
+  //     body: Center(
+  //       child: Column(
+  //         children: [
+  //           const Text(
+  //             'Controlo AntiDopping',
+  //             style: TextStyle(fontSize: 24),
+  //           ),
+  //           Expanded(
+  //             child: StreamBuilder<List<Jogador>>(
+  //                 stream: jogadores.getJogadoresCtrlDopp(),
+  //                 builder: (context, snapshot) {
+  //                   if (snapshot.data?.isNotEmpty ?? false) {
+  //                     return ListView.builder(
+  //                         shrinkWrap: true,
+  //                         itemCount:
+  //                             snapshot.hasData ? snapshot.data!.length : 0,
+  //                         itemBuilder: _itemBuilder(snapshot.data ?? []));
+  //                   } else {
+  //                     return const Center(
+  //                         child: Text("Press the + icon to add a player"));
+  //                   }
+  //                 }),
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,33 +63,38 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
       ),
       body: Center(
         child: Column(
-          children: [
-            const Text(
-              'Simple Calculator',
-              style: TextStyle(fontSize: 24),
-            ),
-            Expanded(
-              child: StreamBuilder<List<Jogador>>(
-                  stream: jogadores.getJogadoresCtrlDopp(),
-                  builder: (context, snapshot) {
-                    if (snapshot.data?.isNotEmpty ?? false) {
-                      return ListView.builder(
-                          shrinkWrap: true,
-                          itemCount:
-                              snapshot.hasData ? snapshot.data!.length : 0,
-                          itemBuilder: _itemBuilder(snapshot.data ?? []));
-                    } else {
-                      return const Center(
-                          child: Text("Press the + icon to add a player"));
-                    }
-                  }),
-            )
-          ],
+          Container(
+            children: [
+              const Text(
+                'Controlo AntiDopping',
+                style: TextStyle(fontSize: 24),
+              ),
+              Expanded(
+                child: const Text("fff"),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return StreamBuilder<List<Jogador>>(
+  //       stream: jogadores.getJogadoresCtrlDopp(),
+  //       builder: (context, snapshot) {
+  //         if (snapshot.data?.isNotEmpty ?? false) {
+  //           return ListView.builder(
+  //               shrinkWrap: true,
+  //               itemCount: snapshot.hasData ? snapshot.data!.length : 0,
+  //               itemBuilder: _itemBuilder(snapshot.data ?? []));
+  //         } else {
+  //           return const Center(
+  //               child: Text("Press the + icon to add a player"));
+  //         }
+  //       });
+  // }
   // Widget build1(BuildContext context) {
   //   return Scaffold(
   //     body: Center(
