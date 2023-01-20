@@ -36,10 +36,81 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "2:9072562209263126501",
+      "lastPropertyId": "7:2788281637241128134",
+      "name": "Competicao",
+      "properties": [
+        {
+          "id": "1:846778003106887697",
+          "name": "idComp",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7137047256600000279",
+          "name": "nJornada",
+          "type": 6
+        },
+        {
+          "id": "3:725621625094543486",
+          "name": "idEquipaCasa",
+          "type": 6
+        },
+        {
+          "id": "4:910157218329785670",
+          "name": "idEquipaVisitante",
+          "type": 6
+        },
+        {
+          "id": "5:4078164267866325604",
+          "name": "golosCasa",
+          "type": 6
+        },
+        {
+          "id": "6:6747309186930870646",
+          "name": "golosVisitante",
+          "type": 6
+        },
+        {
+          "id": "7:2788281637241128134",
+          "name": "resultado",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:2788271258435338794",
+      "lastPropertyId": "3:238864783194514911",
+      "name": "Equipa",
+      "properties": [
+        {
+          "id": "1:4855782462247883110",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7967361771694277208",
+          "name": "nome",
+          "type": 9
+        },
+        {
+          "id": "3:238864783194514911",
+          "name": "competicaoId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:6313852157099151628",
+          "relationTarget": "Competicao"
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "1:8972932823419575406",
-  "lastIndexId": "0:0",
+  "lastEntityId": "3:2788271258435338794",
+  "lastIndexId": "1:6313852157099151628",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,

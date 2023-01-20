@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'models/jogador.dart';
+import 'models/competicao.dart';
+import 'models/equipa.dart';
 import 'objectbox.g.dart';
 
 /// Provides access to the ObjectBox Store throughout the app.
@@ -10,12 +12,22 @@ class ObjectBox {
   late final Store store;
 
   late final Box<Jogador> jogadorBox;
+  late final Box<Competicao> competicaoBox;
+  late final Box<Equipa> equipaBox;
 
   ObjectBox._create(this.store) {
     jogadorBox = Box<Jogador>(store);
+    competicaoBox = Box<Competicao>(store);
+    equipaBox = Box<Equipa>(store);
 
     if (jogadorBox.isEmpty()) {
       _putJogadorDemoData();
+    }
+    if (competicaoBox.isEmpty()) {
+      _putCompeticaoDemoData();
+    }
+    if (equipaBox.isEmpty()) {
+      _putEquipaDemoData();
     }
   }
 
@@ -27,6 +39,30 @@ class ObjectBox {
   }
 
   void _putJogadorDemoData() {
+    Jogador jogador1 = Jogador(
+        "Cristiano Ronaldo", "37", DateTime.utc(2021, 10, 12),
+        ativo: true);
+    Jogador jogador2 =
+        Jogador("Diogo Costa", "23", DateTime.now(), ativo: true);
+    Jogador jogador3 =
+        Jogador("João Felix", "23", DateTime.utc(2021, 5, 12), ativo: true);
+
+    jogadorBox.putMany([jogador1, jogador2, jogador3]);
+  }
+
+  void _putCompeticaoDemoData() {
+    Jogador jogador1 = Jogador(
+        "Cristiano Ronaldo", "37", DateTime.utc(2021, 10, 12),
+        ativo: true);
+    Jogador jogador2 =
+        Jogador("Diogo Costa", "23", DateTime.now(), ativo: true);
+    Jogador jogador3 =
+        Jogador("João Felix", "23", DateTime.utc(2021, 5, 12), ativo: true);
+
+    jogadorBox.putMany([jogador1, jogador2, jogador3]);
+  }
+
+  void _putEquipaDemoData() {
     Jogador jogador1 = Jogador(
         "Cristiano Ronaldo", "37", DateTime.utc(2021, 10, 12),
         ativo: true);
