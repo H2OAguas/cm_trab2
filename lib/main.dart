@@ -17,7 +17,6 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -32,25 +31,7 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        primaryColor: Colors.blue,
-        textTheme: const TextTheme(
-          headline6: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
       ),
-      home: Navigator(
-        onGenerateRoute: (settings) {
-          return MaterialPageRoute(
-            builder: (context) => Scaffold(
-              appBar: MyAppBar(),
-              body: Column(
-                children: const [
-                  CtrlDoppList(),
-                ],
-              ),
       home: Navigator(
         onGenerateRoute: (settings) {
           return MaterialPageRoute(
@@ -75,55 +56,10 @@ class MyApp extends StatelessWidget {
           //   );
           // }
         },
-          );
-
-          // @override
-          // Widget build(BuildContext context) {
-          //   return MaterialApp(
-          //     title: 'ObjectBox Relations Application',
-          //     theme: ThemeData(
-          //       primarySwatch: Colors.blue,
-          //     ),
-          //     home: const MyHomePage(),
-          //   );
-          // }
-        },
       ),
     );
   }
 }
-
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({Key? key}) : super(key: key);
-
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text("Jogadores com mais de 6 meses control AntiDopping"),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(5.0),
-//         child: Column(
-//           children: const [
-//             Expanded(child: CtrlDoppList()),
-//           ],
-//         ),
-//       ),
-//       // floatingActionButton: FloatingActionButton(
-//       //     onPressed: () {
-//       //       Navigator.of(context).push(
-//       //           MaterialPageRoute(builder: (context) => const AddEvent()));
-//       //     },
-//       //     child: const Text("+", style: TextStyle(fontSize: 29))),
-//     );
-//   }
-// }
 
 // class MyHomePage extends StatefulWidget {
 //   const MyHomePage({Key? key}) : super(key: key);
