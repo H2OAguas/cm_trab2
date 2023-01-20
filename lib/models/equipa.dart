@@ -10,5 +10,5 @@ class Equipa {
 
   Equipa(this.nome, {this.id = 0});
 
-  final competicao = ToOne<Competicao>();
+  // final competicao = ToOne<Competicao>();
 }

@@ -4,7 +4,7 @@ import './equipa.dart';
 @Entity()
 class Competicao {
   @Id()
-  int idComp;
+  int id;
   int nJornada;
   int idEquipaCasa;
   int idEquipaVisitante;
@@ -13,11 +13,11 @@ class Competicao {
   String resultado;
 
   Competicao(this.resultado, this.nJornada,
-      {this.idComp = 0,
+      {this.id = 0,
       this.idEquipaCasa = 0,
       this.idEquipaVisitante = 0,
       this.golosCasa = 0,
       this.golosVisitante = 0});
-  @Backlink()
-  final equipas = ToMany<Equipa>();
+  // @Backlink()
+  // final equipas = ToMany<Equipa>();
 }

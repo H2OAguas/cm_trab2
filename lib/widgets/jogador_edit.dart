@@ -1,78 +1,103 @@
-import 'package:event_manager_objectbox/widgets/jogador_edit.dart';
 import 'package:intl/intl.dart';
 import '../lib.dart';
 import '../data/jogadores.dart';
 import '../models/jogador.dart';
-import './jogador_edit.dart';
+// import './jogador_add.dart';
 
-class JogadorReg extends StatefulWidget {
-  final Jogador jogadorReg;
+/// Styling for an event card. Includes the name, location and date.
+/// Clicking a card navigates to a list of tasks related to event.
 
-  const JogadorReg({Key? key, required this.jogadorReg}) : super(key: key);
+class JogadorEdit extends StatefulWidget {
+  final Jogador jogadorEdit;
+
+  const JogadorEdit({Key? key, required this.jogadorEdit}) : super(key: key);
 
   @override
-  State<JogadorReg> createState() => _JogadorRegState();
+  State<JogadorEdit> createState() => _JogadorEditState();
 }
 
-class _JogadorRegState extends State<JogadorReg> {
-  // final Jogador jogadorReg;
-
-  // _JogadorRegState({Key key, @required this.jogadorReg}) : super(key: key);
-
+class _JogadorEditState extends State<JogadorEdit> {
+  final eventNameController = TextEditingController();
+  final eventLocationController = TextEditingController();
+  DateTime? currentDate;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            const SizedBox(
-              height: 40,
-            ),
-            Text(
-              "Nome: ${widget.jogadorReg.nome}",
-              style: const TextStyle(
-                  fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-            ),
-            Text(
-              "Idade: ${widget.jogadorReg.idade ?? 'N/A'}",
-              style: const TextStyle(
-                  fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-            ),
-            Row(children: <Widget>[
-              const Text(
-                "Ativo: ",
-                style: TextStyle(
-                    fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-              ),
-              Checkbox(value: widget.jogadorReg.ativo, onChanged: null
-                  // {
-                  //   // Handle the change event here
-                  //   // You can update the jogador.ativo value and save it to the database
-                  // },
-                  ),
-            ]),
-            Text(
-              "Data Ultimo Controlo Dooping: ${widget.jogadorReg.dataUltCtrlDopp != null ? DateFormat("dd-MM-yyyy").format(widget.jogadorReg.dataUltCtrlDopp!) : 'N/A'}",
-              style: const TextStyle(
-                  fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-            ),
-          ],
-        ),
+      appBar: AppBar(
+        title: const Text("Teste Edit"),
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>
-                    JogadorEdit(jogadorEdit: widget.jogadorReg)));
-          },
-          // child: const Text("+", style: TextStyle(fontSize: 29))),
-          child: const Text("+", style: TextStyle(fontSize: 29))),
+      body: Column(children: <Widget>[
+        Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: TextField(
+              controller: eventNameController,
+              decoration: const InputDecoration(
+                labelText: 'Event Name',
+              ),
+            )),
+        Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: TextField(
+              controller: eventLocationController,
+              decoration: const InputDecoration(
+                labelText: 'Location',
+              ),
+            )),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Text(
+                  currentDate != null
+                      ? "Date: ${DateFormat.yMd().format(currentDate!)}"
+                      : "Date: Not Selected",
+                ),
+              ),
+              const Spacer(),
+              Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextButton(
+                    child: const Text("Select a date",
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    onPressed: () {
+                      showDatePicker(
+                              context: context,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2022),
+                              lastDate: DateTime(2050))
+                          .then((date) {
+                        // setState(() {
+                        //   currentDate = date;
+                        // });
+                      });
+                    },
+                  )),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Row(
+            children: [
+              const Spacer(),
+              ElevatedButton(
+                  child: const Text(
+                    "Save",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  onPressed: () {
+                    // createEvent();
+                    Navigator.pop(context);
+                  })
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
-
 
 // class _JogadorRegState extends State<JogadorReg> {
 //   @override

@@ -52,17 +52,9 @@ class ObjectBox {
 
   void _putCompeticaoDemoData() {
     Competicao competicao1 = Competicao("1", 1,
-        idComp: 1,
-        idEquipaCasa: 1,
-        idEquipaVisitante: 1,
-        golosCasa: 1,
-        golosVisitante: 2);
+        idEquipaCasa: 1, idEquipaVisitante: 1, golosCasa: 1, golosVisitante: 2);
     Competicao competicao2 = Competicao("X", 2,
-        idComp: 1,
-        idEquipaCasa: 1,
-        idEquipaVisitante: 3,
-        golosCasa: 3,
-        golosVisitante: 2);
+        idEquipaCasa: 1, idEquipaVisitante: 3, golosCasa: 3, golosVisitante: 2);
 
     competicaoBox.putMany([competicao1, competicao2]);
   }

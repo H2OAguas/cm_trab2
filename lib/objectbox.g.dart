@@ -58,14 +58,9 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(2, 9072562209263126501),
       name: 'Competicao',
-      lastPropertyId: const IdUid(7, 2788281637241128134),
+      lastPropertyId: const IdUid(8, 7161359681188427782),
       flags: 0,
       properties: <ModelProperty>[
-        ModelProperty(
-            id: const IdUid(1, 846778003106887697),
-            name: 'idComp',
-            type: 6,
-            flags: 1),
         ModelProperty(
             id: const IdUid(2, 7137047256600000279),
             name: 'nJornada',
@@ -95,12 +90,15 @@ final _entities = <ModelEntity>[
             id: const IdUid(7, 2788281637241128134),
             name: 'resultado',
             type: 9,
-            flags: 0)
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(8, 7161359681188427782),
+            name: 'id',
+            type: 6,
+            flags: 1)
       ],
       relations: <ModelRelation>[],
-      backlinks: <ModelBacklink>[
-        ModelBacklink(name: 'equipas', srcEntity: 'Equipa', srcField: '')
-      ]),
+      backlinks: <ModelBacklink>[]),
   ModelEntity(
       id: const IdUid(3, 2788271258435338794),
       name: 'Equipa',
@@ -116,14 +114,7 @@ final _entities = <ModelEntity>[
             id: const IdUid(2, 7967361771694277208),
             name: 'nome',
             type: 9,
-            flags: 0),
-        ModelProperty(
-            id: const IdUid(3, 238864783194514911),
-            name: 'competicaoId',
-            type: 11,
-            flags: 520,
-            indexId: const IdUid(1, 6313852157099151628),
-            relationTarget: 'Competicao')
+            flags: 0)
       ],
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
@@ -154,8 +145,13 @@ ModelDefinition getObjectBoxModel() {
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
-      retiredIndexUids: const [],
-      retiredPropertyUids: const [4047990216589533145, 6738125368053111043],
+      retiredIndexUids: const [6313852157099151628],
+      retiredPropertyUids: const [
+        4047990216589533145,
+        6738125368053111043,
+        846778003106887697,
+        238864783194514911
+      ],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
@@ -205,26 +201,23 @@ ModelDefinition getObjectBoxModel() {
     Competicao: EntityDefinition<Competicao>(
         model: _entities[1],
         toOneRelations: (Competicao object) => [],
-        toManyRelations: (Competicao object) => {
-              RelInfo<Equipa>.toOneBacklink(3, object.idComp,
-                  (Equipa srcObject) => srcObject.competicao): object.equipas
-            },
-        getId: (Competicao object) => object.idComp,
+        toManyRelations: (Competicao object) => {},
+        getId: (Competicao object) => object.id,
         setId: (Competicao object, int id) {
-          object.idComp = id;
+          object.id = id;
         },
         objectToFB: (Competicao object, fb.Builder fbb) {
           final resultadoOffset = fbb.writeString(object.resultado);
-          fbb.startTable(8);
-          fbb.addInt64(0, object.idComp);
+          fbb.startTable(9);
           fbb.addInt64(1, object.nJornada);
           fbb.addInt64(2, object.idEquipaCasa);
           fbb.addInt64(3, object.idEquipaVisitante);
           fbb.addInt64(4, object.golosCasa);
           fbb.addInt64(5, object.golosVisitante);
           fbb.addOffset(6, resultadoOffset);
+          fbb.addInt64(7, object.id);
           fbb.finish(fbb.endTable());
-          return object.idComp;
+          return object.id;
         },
         objectFromFB: (Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
@@ -234,8 +227,7 @@ ModelDefinition getObjectBoxModel() {
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 16, ''),
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0),
-              idComp:
-                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 18, 0),
               idEquipaCasa:
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0),
               idEquipaVisitante:
@@ -244,17 +236,12 @@ ModelDefinition getObjectBoxModel() {
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0),
               golosVisitante:
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0));
-          InternalToManyAccess.setRelInfo(
-              object.equipas,
-              store,
-              RelInfo<Equipa>.toOneBacklink(
-                  3, object.idComp, (Equipa srcObject) => srcObject.competicao),
-              store.box<Competicao>());
+
           return object;
         }),
     Equipa: EntityDefinition<Equipa>(
         model: _entities[2],
-        toOneRelations: (Equipa object) => [object.competicao],
+        toOneRelations: (Equipa object) => [],
         toManyRelations: (Equipa object) => {},
         getId: (Equipa object) => object.id,
         setId: (Equipa object, int id) {
@@ -265,7 +252,6 @@ ModelDefinition getObjectBoxModel() {
           fbb.startTable(4);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, nomeOffset);
-          fbb.addInt64(2, object.competicao.targetId);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -277,9 +263,7 @@ ModelDefinition getObjectBoxModel() {
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 6, ''),
               id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
-          object.competicao.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0);
-          object.competicao.attach(store);
+
           return object;
         })
   };
@@ -309,33 +293,33 @@ class Jogador_ {
 
 /// [Competicao] entity fields to define ObjectBox queries.
 class Competicao_ {
-  /// see [Competicao.idComp]
-  static final idComp =
-      QueryIntegerProperty<Competicao>(_entities[1].properties[0]);
-
   /// see [Competicao.nJornada]
   static final nJornada =
-      QueryIntegerProperty<Competicao>(_entities[1].properties[1]);
+      QueryIntegerProperty<Competicao>(_entities[1].properties[0]);
 
   /// see [Competicao.idEquipaCasa]
   static final idEquipaCasa =
-      QueryIntegerProperty<Competicao>(_entities[1].properties[2]);
+      QueryIntegerProperty<Competicao>(_entities[1].properties[1]);
 
   /// see [Competicao.idEquipaVisitante]
   static final idEquipaVisitante =
-      QueryIntegerProperty<Competicao>(_entities[1].properties[3]);
+      QueryIntegerProperty<Competicao>(_entities[1].properties[2]);
 
   /// see [Competicao.golosCasa]
   static final golosCasa =
-      QueryIntegerProperty<Competicao>(_entities[1].properties[4]);
+      QueryIntegerProperty<Competicao>(_entities[1].properties[3]);
 
   /// see [Competicao.golosVisitante]
   static final golosVisitante =
-      QueryIntegerProperty<Competicao>(_entities[1].properties[5]);
+      QueryIntegerProperty<Competicao>(_entities[1].properties[4]);
 
   /// see [Competicao.resultado]
   static final resultado =
-      QueryStringProperty<Competicao>(_entities[1].properties[6]);
+      QueryStringProperty<Competicao>(_entities[1].properties[5]);
+
+  /// see [Competicao.id]
+  static final id =
+      QueryIntegerProperty<Competicao>(_entities[1].properties[6]);
 }
 
 /// [Equipa] entity fields to define ObjectBox queries.
@@ -345,8 +329,4 @@ class Equipa_ {
 
   /// see [Equipa.nome]
   static final nome = QueryStringProperty<Equipa>(_entities[2].properties[1]);
-
-  /// see [Equipa.competicao]
-  static final competicao =
-      QueryRelationToOne<Equipa, Competicao>(_entities[2].properties[2]);
 }

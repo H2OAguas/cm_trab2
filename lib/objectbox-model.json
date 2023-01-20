@@ -39,15 +39,9 @@
     },
     {
       "id": "2:9072562209263126501",
-      "lastPropertyId": "7:2788281637241128134",
+      "lastPropertyId": "8:7161359681188427782",
       "name": "Competicao",
       "properties": [
-        {
-          "id": "1:846778003106887697",
-          "name": "idComp",
-          "type": 6,
-          "flags": 1
-        },
         {
           "id": "2:7137047256600000279",
           "name": "nJornada",
@@ -77,6 +71,12 @@
           "id": "7:2788281637241128134",
           "name": "resultado",
           "type": 9
+        },
+        {
+          "id": "8:7161359681188427782",
+          "name": "id",
+          "type": 6,
+          "flags": 1
         }
       ],
       "relations": []
@@ -96,14 +96,6 @@
           "id": "2:7967361771694277208",
           "name": "nome",
           "type": 9
-        },
-        {
-          "id": "3:238864783194514911",
-          "name": "competicaoId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "1:6313852157099151628",
-          "relationTarget": "Competicao"
         }
       ],
       "relations": []
@@ -116,10 +108,14 @@
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
-  "retiredIndexUids": [],
+  "retiredIndexUids": [
+    6313852157099151628
+  ],
   "retiredPropertyUids": [
     4047990216589533145,
-    6738125368053111043
+    6738125368053111043,
+    846778003106887697,
+    238864783194514911
   ],
   "retiredRelationUids": [],
   "version": 1
