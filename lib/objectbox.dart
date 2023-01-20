@@ -51,27 +51,28 @@ class ObjectBox {
   }
 
   void _putCompeticaoDemoData() {
-    Jogador jogador1 = Jogador(
-        "Cristiano Ronaldo", "37", DateTime.utc(2021, 10, 12),
-        ativo: true);
-    Jogador jogador2 =
-        Jogador("Diogo Costa", "23", DateTime.now(), ativo: true);
-    Jogador jogador3 =
-        Jogador("João Felix", "23", DateTime.utc(2021, 5, 12), ativo: true);
+    Competicao competicao1 = Competicao("1", 1,
+        idComp: 1,
+        idEquipaCasa: 1,
+        idEquipaVisitante: 1,
+        golosCasa: 1,
+        golosVisitante: 2);
+    Competicao competicao2 = Competicao("X", 2,
+        idComp: 1,
+        idEquipaCasa: 1,
+        idEquipaVisitante: 3,
+        golosCasa: 3,
+        golosVisitante: 2);
 
-    jogadorBox.putMany([jogador1, jogador2, jogador3]);
+    competicaoBox.putMany([competicao1, competicao2]);
   }
 
   void _putEquipaDemoData() {
-    Jogador jogador1 = Jogador(
-        "Cristiano Ronaldo", "37", DateTime.utc(2021, 10, 12),
-        ativo: true);
-    Jogador jogador2 =
-        Jogador("Diogo Costa", "23", DateTime.now(), ativo: true);
-    Jogador jogador3 =
-        Jogador("João Felix", "23", DateTime.utc(2021, 5, 12), ativo: true);
+    Equipa equipa1 = Equipa("Sporting CP");
+    Equipa equipa2 = Equipa("FC Porto");
+    Equipa equipa3 = Equipa("SL Benfica");
 
-    jogadorBox.putMany([jogador1, jogador2, jogador3]);
+    equipaBox.putMany([equipa1, equipa2, equipa3]);
   }
   // void addJogador(String taskText, Owner owner, Event event) {
   //   Task newTask = Task(taskText);
