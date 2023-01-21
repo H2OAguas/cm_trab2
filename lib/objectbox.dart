@@ -29,6 +29,28 @@ class ObjectBox {
     if (equipaBox.isEmpty()) {
       _putEquipaDemoData();
     }
+
+    // Jogador jogador2 =
+    //     Jogador("Bernardo Silva", "26", DateTime.utc(2021, 9, 15));
+    // Jogador jogador3 = Jogador("João Cancelo", "27", DateTime.utc(2021, 8, 20));
+    // Jogador jogador4 = Jogador("Rúben Dias", "23", DateTime.utc(2021, 7, 25));
+    // Jogador jogador5 =
+    //     Jogador("Bruno Fernandes", "26", DateTime.utc(2021, 6, 30));
+    // Jogador jogador6 = Jogador("Diogo Jota", "24", DateTime.utc(2021, 5, 5));
+    // Jogador jogador7 = Jogador("Danilo", "28", DateTime.utc(2021, 4, 10));
+    // Jogador jogador8 = Jogador("Rúben Neves", "24", DateTime.utc(2021, 3, 15));
+    // Jogador jogador9 = Jogador("Rúben Semedo", "26", DateTime.utc(2021, 2, 20));
+    // Jogador jogador10 = Jogador("André Silva", "25", DateTime.utc(2021, 1, 25));
+    // jogadorBox.putMany([
+    //   jogador3,
+    //   jogador4,
+    //   jogador5,
+    //   jogador6,
+    //   jogador7,
+    //   jogador8,
+    //   jogador9,
+    //   jogador10
+    // ]);
   }
 
   /// Create an instance of ObjectBox to use throughout the app.

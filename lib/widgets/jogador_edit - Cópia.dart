@@ -50,8 +50,7 @@ class _JogadorEditState extends State<JogadorEdit> {
                   }
                   return null;
                 },
-                onChanged: (value) => _nome = value,
-                // _nome = value!,
+                onSaved: (value) => _nome = value!,
               ),
               TextFormField(
                 initialValue: _idade,
@@ -62,7 +61,7 @@ class _JogadorEditState extends State<JogadorEdit> {
                   }
                   return null;
                 },
-                onChanged: (value) => _idade = value,
+                onSaved: (value) => _idade = value!,
               ),
               CheckboxListTile(
                 value: _ativo,

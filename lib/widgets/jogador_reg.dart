@@ -1,7 +1,5 @@
-import 'package:event_manager_objectbox/widgets/jogador_edit.dart';
 import 'package:intl/intl.dart';
 import '../lib.dart';
-import '../data/jogadores.dart';
 import '../models/jogador.dart';
 import './jogador_edit.dart';
 
@@ -18,6 +16,12 @@ class _JogadorRegState extends State<JogadorReg> {
   // final Jogador jogadorReg;
 
   // _JogadorRegState({Key key, @required this.jogadorReg}) : super(key: key);
+  bool _active = false;
+  void refreshPage() {
+    setState(() {
+      _active = !_active;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +67,14 @@ class _JogadorRegState extends State<JogadorReg> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>
-                    JogadorEdit(jogadorEdit: widget.jogadorReg)));
+            Navigator.of(context)
+                .push(MaterialPageRoute(
+                    builder: (context) =>
+                        JogadorEdit(jogadorEdit: widget.jogadorReg)))
+                .then((value) => refreshPage());
           },
           // child: const Text("+", style: TextStyle(fontSize: 29))),
-          child: const Text("+", style: TextStyle(fontSize: 29))),
+          child: Icon(Icons.border_color)),
     );
   }
 }

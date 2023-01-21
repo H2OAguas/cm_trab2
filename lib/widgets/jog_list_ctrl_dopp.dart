@@ -1,7 +1,7 @@
-import 'package:event_manager_objectbox/models/jogador.dart';
-import 'package:flutter/material.dart';
+import '../lib.dart';
 import './jogador_card.dart';
 // import '../main.dart';
+import '../models/jogador.dart';
 import '../data/jogadores.dart';
 import 'app_bar.dart';
 

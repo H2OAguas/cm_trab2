@@ -7,6 +7,7 @@
 
 import 'lib.dart';
 
+/// Provides access to the ObjectBox Store throughout the app.
 late ObjectBox objectbox;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

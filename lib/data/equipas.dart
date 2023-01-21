@@ -1,5 +1,5 @@
-import 'package:event_manager_objectbox/main.dart';
-import 'package:event_manager_objectbox/objectbox.g.dart';
+import '../lib.dart';
+import 'package:gestao_futebol/objectbox.g.dart';
 import '../models/equipa.dart';
 
 class Jogadores {
