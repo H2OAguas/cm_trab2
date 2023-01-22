@@ -1,5 +1,5 @@
 import 'package:gestao_futebol/widgets/jogador_reg.dart';
-
+import 'package:intl/intl.dart';
 import '../lib.dart';
 import 'package:gestao_futebol/objectbox.g.dart';
 import '../models/jogador.dart';
@@ -33,114 +33,209 @@ class _JogadorEditState extends State<JogadorEdit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Jogador'),
+        title: Text('Editar jogador ${widget.jogadorEdit.nome}'),
       ),
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
+          padding: const EdgeInsets.all(16.0),
+          child: Column(children: <Widget>[
+            Column(children: <Widget>[
               TextFormField(
+                style: const TextStyle(fontSize: 22),
                 initialValue: _nome,
-                decoration: InputDecoration(labelText: 'Nome'),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
+                decoration: const InputDecoration(
+                    labelText: 'Nome', labelStyle: TextStyle(fontSize: 20)),
                 onChanged: (value) => _nome = value,
                 // _nome = value!,
               ),
               TextFormField(
+                style: const TextStyle(fontSize: 22),
                 initialValue: _idade,
-                decoration: InputDecoration(labelText: 'Idade'),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
+                decoration: const InputDecoration(
+                    labelText: 'Idade', labelStyle: TextStyle(fontSize: 20)),
                 onChanged: (value) => _idade = value,
               ),
-              CheckboxListTile(
-                value: _ativo,
-                title: Text('Ativo'),
-                onChanged: (value) {
-                  setState(() {
-                    _ativo = value!;
-                  });
-                },
-              ),
-              Text(_dataUltCtrlDopp.toString()),
-              const Spacer(),
-              Container(
+            ]),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                CheckboxListTile(
+                  // controlAffinity: ListTileControlAffinity.platform,
+                  value: _ativo,
+                  title: const Text(
+                    'Ativo',
+                    // textAlign: TextAlign.right,
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        height: 1.0,
+                        overflow: TextOverflow.fade),
+                    textAlign: TextAlign.left,
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _ativo = value!;
+                    });
+                  },
+                ),
+                Text(
+                  "Último control Anti Dopping: ${DateFormat("dd-MM-yyyy").format(_dataUltCtrlDopp!)}",
+                  style: const TextStyle(
+                      fontSize: 18.0, height: 1.0, overflow: TextOverflow.fade),
+                ),
+                // const Spacer(),
+                Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: TextButton(
-                    child: const Text("Select a date",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    onPressed: () {
-                      showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now(),
-                              firstDate: DateTime(2022),
-                              lastDate: DateTime(2050))
-                          .then((date) {
-                        setState(() {
-                          _dataUltCtrlDopp = date;
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      child: const Text(
+                        "Alterar data",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.right,
+                      ),
+                      onPressed: () {
+                        showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2022),
+                                lastDate: DateTime(2050))
+                            .then((date) {
+                          setState(() {
+                            _dataUltCtrlDopp = date;
+                          });
                         });
-                      });
-                    },
-                  )),
-              // DateTimeField(
-              //   initialValue: _dataUltCtrlDopp,
-              //   decoration:
-              //       InputDecoration(labelText: 'Ultimo Controlo Anti-Dopping'),
-              //   format: DateFormat('dd-MM-yyyy'),
-              //   onShowPicker: (context, currentValue) async {
-              //     final date = await showDatePicker(
-              //         context: context,
-              //         firstDate: DateTime(1900),
-              //         initialDate: currentValue ?? DateTime.now(),
-              //         lastDate: DateTime(2100));
-              //     if (date != null) {
-              //       return date;
-              //     } else {
-              //       return currentValue;
-              //     }
-              //   },
-              //   onChanged: (value) {
-              //     setState(() {
-              //       _dataUltCtrlDopp = value;
-              //     });
-              //   },
-              // ),
-              ElevatedButton(
-                onPressed: () {
-                  // if (_formKey.currentState.validate()) {
-                  //   _formKey.currentState.save();
-                  widget.jogadorEdit.nome = _nome;
-                  widget.jogadorEdit.idade = _idade;
-                  widget.jogadorEdit.ativo = _ativo;
-                  widget.jogadorEdit.dataUltCtrlDopp = _dataUltCtrlDopp;
-                  objectbox.jogadorBox.put(widget.jogadorEdit);
-                  // JogadorReg(jogadorReg: widget.jogadorEdit);
-                  Navigator.pop(context);
-                  // Navigator.pop(context);
-                  // new JogadorReg(jogadorReg: widget.jogadorEdit);
-
-                  // }
-                },
-                child: Text('Gravar'),
-              ),
-            ],
-          ),
+                      },
+                    ),
+                  ),
+                ),
+                // const Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    // if (_formKey.currentState.validate()) {
+                    //   _formKey.currentState.save();
+                    widget.jogadorEdit.nome = _nome;
+                    widget.jogadorEdit.idade = _idade;
+                    widget.jogadorEdit.ativo = _ativo;
+                    widget.jogadorEdit.dataUltCtrlDopp = _dataUltCtrlDopp;
+                    objectbox.jogadorBox.put(widget.jogadorEdit);
+                    Navigator.pop(context);
+                  },
+                  child: Text('Gravar'),
+                ),
+              ],
+            ),
+          ]),
         ),
       ),
     );
   }
 }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: Text('Editar jogador ${widget.jogadorEdit.nome}'),
+  //     ),
+  //     body: Form(
+  //       key: _formKey,
+  //       child: Padding(
+  //         padding: const EdgeInsets.all(16.0),
+  //         child: Column(
+  //           children: [
+  //             TextFormField(
+  //               style: const TextStyle(fontSize: 22),
+  //               initialValue: _nome,
+  //               decoration: const InputDecoration(
+  //                   labelText: 'Nome', labelStyle: TextStyle(fontSize: 20)),
+  //               onChanged: (value) => _nome = value,
+  //               // _nome = value!,
+  //             ),
+  //             TextFormField(
+  //               style: const TextStyle(fontSize: 22),
+  //               initialValue: _idade,
+  //               decoration: const InputDecoration(
+  //                   labelText: 'Idade', labelStyle: TextStyle(fontSize: 20)),
+  //               onChanged: (value) => _idade = value,
+  //             ),
+  //             Column(
+  //               // crossAxisAlignment: CrossAxisAlignment.stretch,
+  //               children: <Widget>[
+  //                 CheckboxListTile(
+  //                   // controlAffinity: ListTileControlAffinity.platform,
+  //                   value: _ativo,
+  //                   title: const Text(
+  //                     'Ativo',
+  //                     // textAlign: TextAlign.right,
+  //                     style: TextStyle(
+  //                         fontSize: 20.0,
+  //                         height: 1.0,
+  //                         overflow: TextOverflow.fade),
+  //                   ),
+  //                   onChanged: (value) {
+  //                     setState(() {
+  //                       _ativo = value!;
+  //                     });
+  //                   },
+  //                 ),
+
+  //                 Text(
+  //                   "Último control Anti Dopping: ${DateFormat("dd-MM-yyyy").format(_dataUltCtrlDopp!)}",
+  //                   style: const TextStyle(
+  //                       fontSize: 18.0,
+  //                       height: 1.0,
+  //                       overflow: TextOverflow.fade),
+  //                 ),
+  //                 // const Spacer(),
+  //                 Container(
+  //                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
+  //                     child: TextButton(
+  //                       child: const Text("Alterar data",
+  //                           style: TextStyle(fontWeight: FontWeight.bold)),
+  //                       onPressed: () {
+  //                         showDatePicker(
+  //                                 context: context,
+  //                                 initialDate: DateTime.now(),
+  //                                 firstDate: DateTime(2022),
+  //                                 lastDate: DateTime(2050))
+  //                             .then((date) {
+  //                           setState(() {
+  //                             _dataUltCtrlDopp = date;
+  //                           });
+  //                         });
+  //                       },
+  //                     )),
+  //                 const Spacer(),
+  //                 ElevatedButton(
+  //                   onPressed: () {
+  //                     // if (_formKey.currentState.validate()) {
+  //                     //   _formKey.currentState.save();
+  //                     widget.jogadorEdit.nome = _nome;
+  //                     widget.jogadorEdit.idade = _idade;
+  //                     widget.jogadorEdit.ativo = _ativo;
+  //                     widget.jogadorEdit.dataUltCtrlDopp = _dataUltCtrlDopp;
+  //                     objectbox.jogadorBox.put(widget.jogadorEdit);
+  //                     // JogadorReg(jogadorReg: widget.jogadorEdit);
+  //                     Navigator.pop(context);
+  //                     // Navigator.pop(context);
+  //                     // new JogadorReg(jogadorReg: widget.jogadorEdit);
+
+  //                     // }
+  //                   },
+  //                   child: Text('Gravar'),
+  //                 ),
+  //               ],
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
+
 
 // class _JogadorRegState extends State<JogadorReg> {
 //   @override

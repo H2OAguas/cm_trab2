@@ -19,4 +19,10 @@ class Jogadores {
     //   ..order(Jogador_.dataUltCtrlDopp);
     return builder.watch(triggerImmediately: true).map((query) => query.find());
   }
+
+  Stream<List<Jogador>> getJogadoresLista() {
+    // Query para todos jogadores
+    final builder = objectbox.jogadorBox.query()..order(Jogador_.nome);
+    return builder.watch(triggerImmediately: true).map((query) => query.find());
+  }
 }

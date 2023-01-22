@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import '../lib.dart';
 import '../models/jogador.dart';
 import './jogador_edit.dart';
+import 'dart:ui' as ui;
 
 class JogadorReg extends StatefulWidget {
   final Jogador jogadorReg;
@@ -28,16 +29,33 @@ class _JogadorRegState extends State<JogadorReg> {
     return Scaffold(
       appBar: MyAppBar(),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            const SizedBox(height: 20),
+            Container(
+                width: double.infinity,
+                color: Colors.blue[200],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Ficha do jogador ${widget.jogadorReg.nome}",
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          fontSize: 20.0,
+                          height: 1.0,
+                          overflow: TextOverflow.fade)),
+                )),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             Text(
               "Nome: ${widget.jogadorReg.nome}",
               style: const TextStyle(
                   fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
+            ),
+            const SizedBox(
+              height: 16,
             ),
             Text(
               "Idade: ${widget.jogadorReg.idade ?? 'N/A'}",

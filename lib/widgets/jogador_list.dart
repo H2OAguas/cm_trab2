@@ -6,13 +6,13 @@ import '../data/jogadores.dart';
 import 'app_bar.dart';
 
 /// Generates and returns a widget with list of events stored in the Box.
-class CtrlDoppList extends StatefulWidget {
-  const CtrlDoppList({Key? key}) : super(key: key);
+class JogadorList extends StatefulWidget {
+  const JogadorList({Key? key}) : super(key: key);
   @override
-  State<CtrlDoppList> createState() => _CtrlDoppListState();
+  State<JogadorList> createState() => _JogadorListState();
 }
 
-class _CtrlDoppListState extends State<CtrlDoppList> {
+class _JogadorListState extends State<JogadorList> {
   // const CtrlDoppList({Key? key}) : super(key: key);
   Jogadores jogadores = Jogadores();
 
@@ -31,7 +31,7 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
             height: 10,
           ),
           const Text(
-            "Controlo AntiDopping",
+            "Lista de Jogadores",
             style: TextStyle(
               color: Colors.blue,
               fontSize: 16.0,
@@ -41,14 +41,14 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            "Controlo Contratos",
-            style: TextStyle(
-              color: Colors.blue,
-              fontSize: 16.0,
-            ),
-          ),
-          list_jogadores_card(context),
+          // const Text(
+          //   "Controlo Contratos",
+          //   style: TextStyle(
+          //     color: Colors.blue,
+          //     fontSize: 16.0,
+          //   ),
+          // ),
+          // list_jogadores_card(context),
         ]),
       ),
     );
@@ -61,9 +61,9 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: 350,
+            height: 640,
             child: StreamBuilder<List<Jogador>>(
-              stream: jogadores.getJogadoresCtrlDopp(),
+              stream: jogadores.getJogadoresLista(),
               builder: (context, snapshot) {
                 if (snapshot.data?.isNotEmpty ?? false) {
                   return ListView.builder(

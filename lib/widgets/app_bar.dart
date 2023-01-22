@@ -1,3 +1,5 @@
+import 'package:gestao_futebol/widgets/jogador_list.dart';
+
 import '../lib.dart';
 import 'jogador_reg.dart';
 
@@ -16,10 +18,29 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Teste()),
-                    );
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CtrlDoppList()));
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const JogadorList()),
+                    // );
+                  },
+                  child: const Icon(Icons.home_rounded),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => JogadorList()));
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const JogadorList()),
+                    // );
                   },
                   child: Text('Jogadores',
                       style: Theme.of(context).textTheme.headline6),
