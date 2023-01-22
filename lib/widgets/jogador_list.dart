@@ -23,34 +23,32 @@ class _JogadorListState extends State<JogadorList> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: MyAppBar(),
-        body: Column(children: [
-          const SizedBox(
-            height: 10,
+    return Scaffold(
+      appBar: MyAppBar(),
+      body: Column(children: [
+        const SizedBox(
+          height: 10,
+        ),
+        const Text(
+          "Lista de Jogadores",
+          style: TextStyle(
+            color: Colors.blue,
+            fontSize: 16.0,
           ),
-          const Text(
-            "Lista de Jogadores",
-            style: TextStyle(
-              color: Colors.blue,
-              fontSize: 16.0,
-            ),
-          ),
-          list_jogadores_card(context),
-          const SizedBox(
-            height: 10,
-          ),
-          // const Text(
-          //   "Controlo Contratos",
-          //   style: TextStyle(
-          //     color: Colors.blue,
-          //     fontSize: 16.0,
-          //   ),
-          // ),
-          // list_jogadores_card(context),
-        ]),
-      ),
+        ),
+        list_jogadores_card(context),
+        const SizedBox(
+          height: 10,
+        ),
+        // const Text(
+        //   "Controlo Contratos",
+        //   style: TextStyle(
+        //     color: Colors.blue,
+        //     fontSize: 16.0,
+        //   ),
+        // ),
+        // list_jogadores_card(context),
+      ]),
     );
   }
 

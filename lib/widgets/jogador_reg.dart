@@ -68,12 +68,10 @@ class _JogadorRegState extends State<JogadorReg> {
                 style: TextStyle(
                     fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
               ),
-              Checkbox(value: widget.jogadorReg.ativo, onChanged: null
-                  // {
-                  //   // Handle the change event here
-                  //   // You can update the jogador.ativo value and save it to the database
-                  // },
-                  ),
+              Checkbox(
+                  activeColor: Colors.green,
+                  value: widget.jogadorReg.ativo,
+                  onChanged: null),
             ]),
             Text(
               "Data Ultimo Controlo Dooping: ${widget.jogadorReg.dataUltCtrlDopp != null ? DateFormat("dd-MM-yyyy").format(widget.jogadorReg.dataUltCtrlDopp!) : 'N/A'}",

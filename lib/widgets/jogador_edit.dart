@@ -63,6 +63,7 @@ class _JogadorEditState extends State<JogadorEdit> {
                 CheckboxListTile(
                   // controlAffinity: ListTileControlAffinity.platform,
                   value: _ativo,
+                  activeColor: Colors.green,
                   title: const Text(
                     'Ativo',
                     // textAlign: TextAlign.right,

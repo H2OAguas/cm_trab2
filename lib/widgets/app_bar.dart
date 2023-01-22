@@ -14,33 +14,23 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Expanded(
-              child: Center(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => CtrlDoppList()));
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const JogadorList()),
-                    // );
-                  },
-                  child: const Icon(Icons.home_rounded),
-                ),
-              ),
-            ),
+            // Expanded(
+            //   child: Center(
+            //     child: InkWell(
+            //       onTap: () {
+            //         Navigator.of(context).push(MaterialPageRoute(
+            //             builder: (context) => CtrlDoppList()));
+            //       },
+            //       child: const Icon(Icons.home_rounded),
+            //     ),
+            //   ),
+            // ),
             Expanded(
               child: Center(
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => JogadorList()));
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => const JogadorList()),
-                    // );
                   },
                   child: Text('Jogadores',
                       style: Theme.of(context).textTheme.headline6),
@@ -49,8 +39,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             Expanded(
               child: Center(
-                child: Text('Competições',
-                    style: Theme.of(context).textTheme.headline6),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => Teste()));
+                  },
+                  child: Text('Competições',
+                      style: Theme.of(context).textTheme.headline6),
+                ),
               ),
             ),
             Expanded(
