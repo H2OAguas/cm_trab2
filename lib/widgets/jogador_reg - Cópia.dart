@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 import '../lib.dart';
 import '../models/jogador.dart';
 import './jogador_edit.dart';
-import './hist_contrat_list.dart';
+import 'dart:ui' as ui;
 
 class JogadorReg extends StatefulWidget {
   final Jogador jogadorReg;
@@ -77,12 +77,6 @@ class _JogadorRegState extends State<JogadorReg> {
               "Data Ultimo Controlo Dooping: ${widget.jogadorReg.dataUltCtrlDopp != null ? DateFormat("dd-MM-yyyy").format(widget.jogadorReg.dataUltCtrlDopp!) : 'N/A'}",
               style: const TextStyle(
                   fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-            ),
-            ElevatedButton(
-              child: const Text("Contratos"),
-              onPressed: () {
-                const HistContratList();
-              },
             ),
           ],
         ),

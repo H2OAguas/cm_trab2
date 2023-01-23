@@ -16,6 +16,7 @@ import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
 import 'models/competicao.dart';
 import 'models/equipa.dart';
+import 'models/hist_contrat.dart';
 import 'models/jogador.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
@@ -117,6 +118,40 @@ final _entities = <ModelEntity>[
             flags: 0)
       ],
       relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(4, 2260627275348808010),
+      name: 'HistContrat',
+      lastPropertyId: const IdUid(11, 662421887893855742),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 21012146601099868),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5628552456547343869),
+            name: 'dataInicio',
+            type: 10,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 5565346162491625494),
+            name: 'dataFinal',
+            type: 10,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(10, 7796295945158346585),
+            name: 'idJogador',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(11, 662421887893855742),
+            name: 'idEquipa',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -140,17 +175,31 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(3, 2788271258435338794),
-      lastIndexId: const IdUid(1, 6313852157099151628),
+      lastEntityId: const IdUid(4, 2260627275348808010),
+      lastIndexId: const IdUid(7, 4759506710432874446),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
-      retiredIndexUids: const [6313852157099151628],
+      retiredIndexUids: const [
+        6313852157099151628,
+        7686609033112063034,
+        1620774719572104008,
+        4355820364049297143,
+        8919639583425175720,
+        1038537645515602927,
+        4759506710432874446
+      ],
       retiredPropertyUids: const [
         4047990216589533145,
         6738125368053111043,
         846778003106887697,
-        238864783194514911
+        238864783194514911,
+        2700003855852599396,
+        1034020601163927219,
+        8891470639353705203,
+        6037669145669319941,
+        6439827549941111654,
+        7944107839922393618
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -265,6 +314,46 @@ ModelDefinition getObjectBoxModel() {
               id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0));
 
           return object;
+        }),
+    HistContrat: EntityDefinition<HistContrat>(
+        model: _entities[3],
+        toOneRelations: (HistContrat object) => [],
+        toManyRelations: (HistContrat object) => {},
+        getId: (HistContrat object) => object.id,
+        setId: (HistContrat object, int id) {
+          object.id = id;
+        },
+        objectToFB: (HistContrat object, fb.Builder fbb) {
+          fbb.startTable(12);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.dataInicio?.millisecondsSinceEpoch);
+          fbb.addInt64(2, object.dataFinal?.millisecondsSinceEpoch);
+          fbb.addInt64(9, object.idJogador);
+          fbb.addInt64(10, object.idEquipa);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final dataInicioValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 6);
+          final dataFinalValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final object = HistContrat(
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
+              idJogador:
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0),
+              idEquipa:
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 24, 0),
+              dataInicio: dataInicioValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(dataInicioValue),
+              dataFinal: dataFinalValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(dataFinalValue));
+
+          return object;
         })
   };
 
@@ -329,4 +418,27 @@ class Equipa_ {
 
   /// see [Equipa.nome]
   static final nome = QueryStringProperty<Equipa>(_entities[2].properties[1]);
+}
+
+/// [HistContrat] entity fields to define ObjectBox queries.
+class HistContrat_ {
+  /// see [HistContrat.id]
+  static final id =
+      QueryIntegerProperty<HistContrat>(_entities[3].properties[0]);
+
+  /// see [HistContrat.dataInicio]
+  static final dataInicio =
+      QueryIntegerProperty<HistContrat>(_entities[3].properties[1]);
+
+  /// see [HistContrat.dataFinal]
+  static final dataFinal =
+      QueryIntegerProperty<HistContrat>(_entities[3].properties[2]);
+
+  /// see [HistContrat.idJogador]
+  static final idJogador =
+      QueryIntegerProperty<HistContrat>(_entities[3].properties[3]);
+
+  /// see [HistContrat.idEquipa]
+  static final idEquipa =
+      QueryIntegerProperty<HistContrat>(_entities[3].properties[4]);
 }

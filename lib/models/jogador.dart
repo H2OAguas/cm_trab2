@@ -1,5 +1,6 @@
+import 'package:gestao_futebol/models/hist_contrat.dart';
 import 'package:objectbox/objectbox.dart';
-// import 'package:event_manager_objectbox/objectbox.g.dart';
+// import 'package:gestao_futebol/';
 
 @Entity()
 class Jogador {
@@ -14,4 +15,7 @@ class Jogador {
   Jogador(this.nome, this.idade, DateTime? dataUltCtrlDopp,
       {this.ativo = true, this.id = 0})
       : this.dataUltCtrlDopp = dataUltCtrlDopp ?? DateTime.now();
+
+  // @Backlink('jogador')
+  // final histContrats = ToMany<HistContrat>();
 }

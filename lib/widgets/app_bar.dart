@@ -1,4 +1,6 @@
+import 'package:gestao_futebol/widgets/equipa_list.dart';
 import 'package:gestao_futebol/widgets/jogador_list.dart';
+import 'package:gestao_futebol/widgets/hist_contrat_list.dart';
 
 import '../lib.dart';
 import 'jogador_reg.dart';
@@ -14,23 +16,12 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Expanded(
-            //   child: Center(
-            //     child: InkWell(
-            //       onTap: () {
-            //         Navigator.of(context).push(MaterialPageRoute(
-            //             builder: (context) => CtrlDoppList()));
-            //       },
-            //       child: const Icon(Icons.home_rounded),
-            //     ),
-            //   ),
-            // ),
             Expanded(
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => JogadorList()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const JogadorList()));
                   },
                   child: Text('Jogadores',
                       style: Theme.of(context).textTheme.headline6),
@@ -41,8 +32,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => Teste()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => HistContratList()));
                   },
                   child: Text('Competições',
                       style: Theme.of(context).textTheme.headline6),
@@ -55,7 +46,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Teste()),
+                      MaterialPageRoute(
+                          builder: (context) => const EquipaList()),
                     );
                   },
                   child: Text('Equipas',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestao_futebol/models/hist_contrat.dart';
 
 import 'models/jogador.dart';
 import 'models/competicao.dart';
@@ -10,15 +11,22 @@ import 'objectbox.g.dart';
 /// Create this in the apps main function.
 class ObjectBox {
   late final Store store;
+  // late final Admin _admin;
 
   late final Box<Jogador> jogadorBox;
   late final Box<Competicao> competicaoBox;
   late final Box<Equipa> equipaBox;
+  late final Box<HistContrat> histContratBox;
 
   ObjectBox._create(this.store) {
+    // if (Admin.isAvailable()) {
+    //   // Keep a reference until no longer needed or manually closed.
+    //   _admin = Admin(store);
+    // }
     jogadorBox = Box<Jogador>(store);
     competicaoBox = Box<Competicao>(store);
     equipaBox = Box<Equipa>(store);
+    histContratBox = Box<HistContrat>(store);
 
     if (jogadorBox.isEmpty()) {
       _putJogadorDemoData();
@@ -29,28 +37,9 @@ class ObjectBox {
     if (equipaBox.isEmpty()) {
       _putEquipaDemoData();
     }
-
-    // Jogador jogador2 =
-    //     Jogador("Bernardo Silva", "26", DateTime.utc(2021, 9, 15));
-    // Jogador jogador3 = Jogador("João Cancelo", "27", DateTime.utc(2021, 8, 20));
-    // Jogador jogador4 = Jogador("Rúben Dias", "23", DateTime.utc(2021, 7, 25));
-    // Jogador jogador5 =
-    //     Jogador("Bruno Fernandes", "26", DateTime.utc(2021, 6, 30));
-    // Jogador jogador6 = Jogador("Diogo Jota", "24", DateTime.utc(2021, 5, 5));
-    // Jogador jogador7 = Jogador("Danilo", "28", DateTime.utc(2021, 4, 10));
-    // Jogador jogador8 = Jogador("Rúben Neves", "24", DateTime.utc(2021, 3, 15));
-    // Jogador jogador9 = Jogador("Rúben Semedo", "26", DateTime.utc(2021, 2, 20));
-    // Jogador jogador10 = Jogador("André Silva", "25", DateTime.utc(2021, 1, 25));
-    // jogadorBox.putMany([
-    //   jogador3,
-    //   jogador4,
-    //   jogador5,
-    //   jogador6,
-    //   jogador7,
-    //   jogador8,
-    //   jogador9,
-    //   jogador10
-    // ]);
+    if (histContratBox.isEmpty()) {
+      _putHistContratDemoData();
+    }
   }
 
   /// Create an instance of ObjectBox to use throughout the app.
@@ -68,8 +57,32 @@ class ObjectBox {
         Jogador("Diogo Costa", "23", DateTime.now(), ativo: true);
     Jogador jogador3 =
         Jogador("João Felix", "23", DateTime.utc(2021, 5, 12), ativo: true);
-
-    jogadorBox.putMany([jogador1, jogador2, jogador3]);
+    Jogador jogador4 =
+        Jogador("Bernardo Silva", "26", DateTime.utc(2021, 9, 15));
+    Jogador jogador5 = Jogador("João Cancelo", "27", DateTime.utc(2021, 8, 20));
+    Jogador jogador6 = Jogador("Rúben Dias", "23", DateTime.utc(2021, 7, 25));
+    Jogador jogador7 =
+        Jogador("Bruno Fernandes", "26", DateTime.utc(2021, 6, 30));
+    Jogador jogador8 = Jogador("Diogo Jota", "24", DateTime.utc(2021, 5, 5));
+    Jogador jogador9 = Jogador("Danilo", "28", DateTime.utc(2021, 4, 10));
+    Jogador jogador10 = Jogador("Rúben Neves", "24", DateTime.utc(2021, 3, 15));
+    Jogador jogador11 =
+        Jogador("Rúben Semedo", "26", DateTime.utc(2021, 2, 20));
+    Jogador jogador12 = Jogador("André Silva", "25", DateTime.utc(2021, 1, 25));
+    jogadorBox.putMany([
+      jogador1,
+      jogador2,
+      jogador3,
+      jogador4,
+      jogador5,
+      jogador6,
+      jogador7,
+      jogador8,
+      jogador9,
+      jogador10,
+      jogador11,
+      jogador12
+    ]);
   }
 
   void _putCompeticaoDemoData() {
@@ -85,8 +98,71 @@ class ObjectBox {
     Equipa equipa1 = Equipa("Sporting CP");
     Equipa equipa2 = Equipa("FC Porto");
     Equipa equipa3 = Equipa("SL Benfica");
+    Equipa equipa4 = Equipa("SC Braga");
+    Equipa equipa5 = Equipa("Vitória SC");
+    Equipa equipa6 = Equipa("Rio Ave FC");
+    Equipa equipa7 = Equipa("Boavista FC");
+    Equipa equipa8 = Equipa("FC Famalicão");
+    Equipa equipa9 = Equipa("Gil Vicente FC");
+    Equipa equipa10 = Equipa("Moreirense FC");
+    Equipa equipa11 = Equipa("CD Santa Clara");
+    Equipa equipa12 = Equipa("CD Tondela");
+    Equipa equipa13 = Equipa("CS Marítimo");
+    Equipa equipa14 = Equipa("Portimonense SC");
+    Equipa equipa15 = Equipa("Farense");
+    Equipa equipa16 = Equipa("Manchester United");
+    Equipa equipa17 = Equipa("Barcelona");
+    Equipa equipa18 = Equipa("Paris Saint-Germain");
+    Equipa equipa19 = Equipa("Bayern Munich");
+    Equipa equipa20 = Equipa("Juventus");
+    Equipa equipa21 = Equipa("Liverpool");
+    Equipa equipa22 = Equipa("Real Madrid");
+    Equipa equipa23 = Equipa("Chelsea");
+    Equipa equipa24 = Equipa("Atletico Madrid");
+    Equipa equipa25 = Equipa("Tottenham Hotspur");
 
-    equipaBox.putMany([equipa1, equipa2, equipa3]);
+    equipaBox.putMany([
+      equipa1,
+      equipa2,
+      equipa3,
+      equipa4,
+      equipa5,
+      equipa6,
+      equipa7,
+      equipa8,
+      equipa9,
+      equipa10,
+      equipa11,
+      equipa12,
+      equipa13,
+      equipa14,
+      equipa15,
+      equipa16,
+      equipa17,
+      equipa18,
+      equipa19,
+      equipa20,
+      equipa21,
+      equipa22,
+      equipa23,
+      equipa24,
+      equipa25
+    ]);
+  }
+
+  void _putHistContratDemoData() {
+    HistContrat histContrat1 = HistContrat(
+        idJogador: 1,
+        idEquipa: 1,
+        dataInicio: DateTime.now(),
+        dataFinal: DateTime.now());
+    HistContrat histContrat2 = HistContrat(
+        idJogador: 2,
+        idEquipa: 3,
+        dataInicio: DateTime.now(),
+        dataFinal: DateTime.now());
+
+    histContratBox.putMany([histContrat1, histContrat2]);
   }
   // void addJogador(String taskText, Owner owner, Event event) {
   //   Task newTask = Task(taskText);
