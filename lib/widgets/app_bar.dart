@@ -32,8 +32,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => HistContratList()));
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => Teste()));
                   },
                   child: Text('Competições',
                       style: Theme.of(context).textTheme.headline6),

@@ -7,7 +7,9 @@ import 'app_bar.dart';
 
 /// Generates and returns a widget with list of events stored in the Box.
 class HistContratList extends StatefulWidget {
-  const HistContratList({Key? key}) : super(key: key);
+  final int idJogador;
+
+  const HistContratList({Key? key, required this.idJogador}) : super(key: key);
   @override
   State<HistContratList> createState() => _HistContratListState();
 }
@@ -52,7 +54,6 @@ class _HistContratListState extends State<HistContratList> {
     );
   }
 
-  @override
   Widget list_histContrats_card(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
@@ -61,7 +62,7 @@ class _HistContratListState extends State<HistContratList> {
           Container(
             height: 640,
             child: StreamBuilder<List<HistContrat>>(
-              stream: histContrats.getHistContratsId(1),
+              stream: histContrats.getHistContratsId(widget.idJogador),
               builder: (context, snapshot) {
                 if (snapshot.data?.isNotEmpty ?? false) {
                   return ListView.builder(

@@ -81,8 +81,15 @@ class _JogadorRegState extends State<JogadorReg> {
             ElevatedButton(
               child: const Text("Contratos"),
               onPressed: () {
-                const HistContratList();
+                Navigator.of(context)
+                    .push(MaterialPageRoute(
+                        builder: (context) =>
+                            HistContratList(idJogador: widget.jogadorReg.id)))
+                    .then((value) => refreshPage());
               },
+              // {
+              //   const HistContratList();
+              // },
             ),
           ],
         ),
