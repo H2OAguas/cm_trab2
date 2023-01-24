@@ -24,7 +24,7 @@ class _JogadorListState extends State<JogadorList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(),
+      // appBar: MyAppBar(),
       body: Column(children: [
         const SizedBox(
           height: 10,
@@ -59,7 +59,7 @@ class _JogadorListState extends State<JogadorList> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: 440,
+            height: 540,
             child: StreamBuilder<List<Jogador>>(
               stream: jogadores.getJogadoresLista(),
               builder: (context, snapshot) {

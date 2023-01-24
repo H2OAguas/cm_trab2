@@ -58,7 +58,7 @@ class _JogadorRegState extends State<JogadorReg> {
               height: 16,
             ),
             Text(
-              "Idade: ${widget.jogadorReg.idade ?? 'N/A'}",
+              "Idade: ${widget.jogadorReg.idade ?? 'N/A'} - ${widget.jogadorReg.id ?? 'N/A'}",
               style: const TextStyle(
                   fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
             ),

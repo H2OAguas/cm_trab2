@@ -27,6 +27,7 @@ class ObjectBox {
     competicaoBox = Box<Competicao>(store);
     equipaBox = Box<Equipa>(store);
     histContratBox = Box<HistContrat>(store);
+    //Como não esta implementado alterações aos contratos, opta-se por, sempre que carrega a app, eliminar a tabela e recria-la.
     histContratBox.removeAll();
 
     if (jogadorBox.isEmpty()) {
@@ -172,8 +173,24 @@ class ObjectBox {
         idEquipa: 9,
         dataInicio: DateTime.utc(2017, 8, 16),
         dataFinal: DateTime.utc(2018, 8, 16));
-    histContratBox
-        .putMany([histContrat1, histContrat2, histContrat3, histContrat4]);
+    HistContrat histContrat5 = HistContrat(
+        idJogador: 12,
+        idEquipa: 4,
+        dataInicio: DateTime.utc(2022, 5, 16),
+        dataFinal: DateTime.utc(2023, 5, 16));
+    HistContrat histContrat6 = HistContrat(
+        idJogador: 4,
+        idEquipa: 7,
+        dataInicio: DateTime.utc(2022, 5, 16),
+        dataFinal: DateTime.utc(2024, 5, 16));
+    histContratBox.putMany([
+      histContrat1,
+      histContrat2,
+      histContrat3,
+      histContrat4,
+      histContrat5,
+      histContrat6
+    ]);
   }
   // void addJogador(String taskText, Owner owner, Event event) {
   //   Task newTask = Task(taskText);

@@ -22,7 +22,7 @@ class _JogadorPageState extends State<JogadorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: UniqueKey(),
-      // appBar: MyAppBar(),
+      appBar: MyAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(

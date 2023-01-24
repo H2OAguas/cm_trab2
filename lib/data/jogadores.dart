@@ -1,9 +1,11 @@
 import 'package:gestao_futebol/objectbox.g.dart';
 import '../models/jogador.dart';
+import '../data/hist_contrats.dart';
+import '../models/hist_contrat.dart';
 import '../lib.dart';
 
 class Jogadores {
-  final List<Jogador> _jogadores = [];
+  // final List<Jogador> _jogadores = [];
 
   final now = DateTime.now();
 
