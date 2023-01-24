@@ -26,9 +26,11 @@ class _HistContratCardState extends State<HistContratCard> {
 
   @override
   Widget build(BuildContext context) {
-    final jogadorQuery = objectbox.jogadorBox
-        .query(Jogador_.id.equals(widget.histContrat.idJogador))
+    final equipaQuery = objectbox.equipaBox
+        .query(Equipa_.id.equals(widget.histContrat.idEquipa))
         .build();
+    Equipa? equipaResult = equipaQuery.findFirst();
+    equipaQuery.close;
     return GestureDetector(
       // onTap: () {
       //   Navigator.of(context).push(MaterialPageRoute(
@@ -59,33 +61,34 @@ class _HistContratCardState extends State<HistContratCard> {
                           alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.all(5),
                           child: Text(
-                            widget.histContrat.idEquipa.toString(),
+                            equipaResult!.nome.toString(),
                             style: const TextStyle(
                                 fontSize: 15.0,
                                 height: 1.0,
                                 overflow: TextOverflow.fade),
                           ),
                         ),
-                        // Container(
-                        //   alignment: Alignment.centerLeft,
-                        //   padding: const EdgeInsets.all(10.0),
-                        //   child: Row(
-                        //     children: [
-                        //       Text("Idade: ${widget.jogador.idade}",
-                        //           style: const TextStyle(
-                        //               fontSize: 15.0,
-                        //               height: 1.0,
-                        //               overflow: TextOverflow.fade)),
-                        //       const Spacer(),
-                        //       Text(
-                        //           "Ult Ctrl AntiDopping: ${DateFormat('dd.MM.yyyy').format(widget.jogador.dataUltCtrlDopp!)}",
-                        //           style: const TextStyle(
-                        //               fontSize: 15.0,
-                        //               height: 1.0,
-                        //               overflow: TextOverflow.fade))
-                        //     ],
-                        //   ),
-                        // ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.all(10.0),
+                          child: Row(
+                            children: [
+                              Text(
+                                  "Data inicial: : ${DateFormat('dd.MM.yyyy').format(widget.histContrat.dataInicio!)}",
+                                  style: const TextStyle(
+                                      fontSize: 15.0,
+                                      height: 1.0,
+                                      overflow: TextOverflow.fade)),
+                              const Spacer(),
+                              Text(
+                                  "Data final: : ${DateFormat('dd.MM.yyyy').format(widget.histContrat.dataFinal!)}",
+                                  style: const TextStyle(
+                                      fontSize: 15.0,
+                                      height: 1.0,
+                                      overflow: TextOverflow.fade))
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),

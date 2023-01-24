@@ -59,7 +59,7 @@ class _JogadorListState extends State<JogadorList> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: 640,
+            height: 440,
             child: StreamBuilder<List<Jogador>>(
               stream: jogadores.getJogadoresLista(),
               builder: (context, snapshot) {

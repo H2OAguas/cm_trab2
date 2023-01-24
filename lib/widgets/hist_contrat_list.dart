@@ -72,7 +72,8 @@ class _HistContratListState extends State<HistContratList> {
                       itemBuilder: _itemBuilder(snapshot.data ?? []));
                 } else {
                   return const Center(
-                      child: Text("Press the + icon to add a player"));
+                      child: Text(
+                          "Pressione o icon '+' para adicionar um contrato"));
                 }
               },
             ),

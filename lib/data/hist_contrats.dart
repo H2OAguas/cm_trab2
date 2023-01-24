@@ -20,7 +20,9 @@ class HistContrats {
   }
 
   Stream<List<HistContrat>> getHistContratsId(int id) {
-    final builder = objectbox.histContratBox.query(HistContrat_.id.equals(id));
+    final builder = objectbox.histContratBox
+        .query(HistContrat_.idJogador.equals(id))
+        .order(HistContrat_.dataFinal, flags: Order.descending);
     return builder.watch(triggerImmediately: true).map((query) => query.find());
   }
 }

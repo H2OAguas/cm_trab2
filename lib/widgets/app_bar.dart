@@ -1,5 +1,5 @@
 import 'package:gestao_futebol/widgets/equipa_list.dart';
-import 'package:gestao_futebol/widgets/jogador_list.dart';
+import 'package:gestao_futebol/widgets/jogador_page.dart';
 import 'package:gestao_futebol/widgets/hist_contrat_list.dart';
 
 import '../lib.dart';
@@ -21,7 +21,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const JogadorList()));
+                        builder: (context) => const JogadorPage()));
                   },
                   child: Text('Jogadores',
                       style: Theme.of(context).textTheme.headline6),

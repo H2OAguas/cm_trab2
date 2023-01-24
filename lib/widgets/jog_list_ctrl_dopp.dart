@@ -1,4 +1,5 @@
 import '../lib.dart';
+import 'dart:ui';
 import './jogador_card.dart';
 // import '../main.dart';
 import '../models/jogador.dart';
@@ -8,6 +9,7 @@ import 'app_bar.dart';
 /// Generates and returns a widget with list of events stored in the Box.
 class CtrlDoppList extends StatefulWidget {
   const CtrlDoppList({Key? key}) : super(key: key);
+
   @override
   State<CtrlDoppList> createState() => _CtrlDoppListState();
 }
@@ -15,7 +17,8 @@ class CtrlDoppList extends StatefulWidget {
 class _CtrlDoppListState extends State<CtrlDoppList> {
   // const CtrlDoppList({Key? key}) : super(key: key);
   Jogadores jogadores = Jogadores();
-
+  // double pixelRatio = window.devicePixelRatio;
+  // double screenHeight = window.physicalSize.height / pixelRatio;
   JogadorCard Function(BuildContext, int) _itemBuilder(
           List<Jogador> jogadores) =>
       (BuildContext context, int index) =>
@@ -39,7 +42,7 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
           ),
           list_jogadores_card(context),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           const Text(
             "Controlo Contratos",
@@ -56,12 +59,13 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
 
   @override
   Widget list_jogadores_card(BuildContext context) {
+    double screenHeight = WidgetsBinding.instance.window.physicalSize.height;
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: 350,
+            height: 340,
             child: StreamBuilder<List<Jogador>>(
               stream: jogadores.getJogadoresCtrlDopp(),
               builder: (context, snapshot) {

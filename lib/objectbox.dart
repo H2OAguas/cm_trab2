@@ -27,6 +27,7 @@ class ObjectBox {
     competicaoBox = Box<Competicao>(store);
     equipaBox = Box<Equipa>(store);
     histContratBox = Box<HistContrat>(store);
+    histContratBox.removeAll();
 
     if (jogadorBox.isEmpty()) {
       _putJogadorDemoData();
@@ -161,8 +162,18 @@ class ObjectBox {
         idEquipa: 3,
         dataInicio: DateTime.now(),
         dataFinal: DateTime.now());
-
-    histContratBox.putMany([histContrat1, histContrat2]);
+    HistContrat histContrat3 = HistContrat(
+        idJogador: 1,
+        idEquipa: 7,
+        dataInicio: DateTime.utc(2015, 8, 15),
+        dataFinal: DateTime.utc(2017, 8, 15));
+    HistContrat histContrat4 = HistContrat(
+        idJogador: 1,
+        idEquipa: 9,
+        dataInicio: DateTime.utc(2017, 8, 16),
+        dataFinal: DateTime.utc(2018, 8, 16));
+    histContratBox
+        .putMany([histContrat1, histContrat2, histContrat3, histContrat4]);
   }
   // void addJogador(String taskText, Owner owner, Event event) {
   //   Task newTask = Task(taskText);
