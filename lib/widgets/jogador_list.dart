@@ -36,24 +36,15 @@ class _JogadorListState extends State<JogadorList> {
             fontSize: 16.0,
           ),
         ),
-        list_jogadores_card(context),
+        _listJogadoresCard(context),
         const SizedBox(
           height: 10,
         ),
-        // const Text(
-        //   "Controlo Contratos",
-        //   style: TextStyle(
-        //     color: Colors.blue,
-        //     fontSize: 16.0,
-        //   ),
-        // ),
-        // list_jogadores_card(context),
       ]),
     );
   }
 
-  @override
-  Widget list_jogadores_card(BuildContext context) {
+  Widget _listJogadoresCard(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,

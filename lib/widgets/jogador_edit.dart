@@ -1,7 +1,5 @@
-import 'package:gestao_futebol/widgets/jogador_reg.dart';
 import 'package:intl/intl.dart';
 import '../lib.dart';
-import 'package:gestao_futebol/objectbox.g.dart';
 import '../models/jogador.dart';
 
 class JogadorEdit extends StatefulWidget {
@@ -10,7 +8,7 @@ class JogadorEdit extends StatefulWidget {
   const JogadorEdit({Key? key, required this.jogadorEdit}) : super(key: key);
 
   @override
-  _JogadorEditState createState() => _JogadorEditState();
+  State<JogadorEdit> createState() => _JogadorEditState();
 }
 
 class _JogadorEditState extends State<JogadorEdit> {
@@ -61,7 +59,6 @@ class _JogadorEditState extends State<JogadorEdit> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 CheckboxListTile(
-                  // controlAffinity: ListTileControlAffinity.platform,
                   value: _ativo,
                   activeColor: Colors.green,
                   title: const Text(
@@ -115,8 +112,6 @@ class _JogadorEditState extends State<JogadorEdit> {
                 // const Spacer(),
                 ElevatedButton(
                   onPressed: () {
-                    // if (_formKey.currentState.validate()) {
-                    //   _formKey.currentState.save();
                     widget.jogadorEdit.nome = _nome;
                     widget.jogadorEdit.idade = _idade;
                     widget.jogadorEdit.ativo = _ativo;

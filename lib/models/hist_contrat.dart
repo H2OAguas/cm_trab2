@@ -21,7 +21,4 @@ class HistContrat {
     this.dataInicio,
     this.dataFinal,
   });
-
-  // final jogador = ToOne<Jogador>();
-  // final equipa = ToOne<Equipa>();
 }

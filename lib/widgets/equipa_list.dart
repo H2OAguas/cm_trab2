@@ -1,11 +1,9 @@
 import '../lib.dart';
 import './equipa_card.dart';
-// import '../main.dart';
 import '../models/equipa.dart';
 import '../data/equipas.dart';
-import 'app_bar.dart';
 
-/// Generates and returns a widget with list of events stored in the Box.
+//Retorna uma lista de equipas
 class EquipaList extends StatefulWidget {
   const EquipaList({Key? key}) : super(key: key);
   @override
@@ -13,7 +11,6 @@ class EquipaList extends StatefulWidget {
 }
 
 class _EquipaListState extends State<EquipaList> {
-  // const CtrlDoppList({Key? key}) : super(key: key);
   Equipas equipas = Equipas();
 
   EquipaCard Function(BuildContext, int) _itemBuilder(List<Equipa> equipas) =>
@@ -38,14 +35,6 @@ class _EquipaListState extends State<EquipaList> {
         const SizedBox(
           height: 10,
         ),
-        // const Text(
-        //   "Controlo Contratos",
-        //   style: TextStyle(
-        //     color: Colors.blue,
-        //     fontSize: 16.0,
-        //   ),
-        // ),
-        // list_jogadores_card(context),
       ]),
     );
   }

@@ -15,11 +15,6 @@ class JogadorCard extends StatefulWidget {
 }
 
 class _JogadorCardState extends State<JogadorCard> {
-//     @override
-//   void initState() {
-//     super.initState();
-//   }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

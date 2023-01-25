@@ -1,11 +1,8 @@
 import '../lib.dart';
-import 'dart:ui';
 import './jogador_card.dart';
-// import '../main.dart';
 import '../models/jogador.dart';
 import '../data/jogadores.dart';
 import '../data/hist_contrats.dart';
-import 'app_bar.dart';
 
 /// Generates and returns a widget with list of events stored in the Box.
 class CtrlDoppList extends StatefulWidget {
@@ -16,7 +13,6 @@ class CtrlDoppList extends StatefulWidget {
 }
 
 class _CtrlDoppListState extends State<CtrlDoppList> {
-  // const CtrlDoppList({Key? key}) : super(key: key);
   Jogadores jogadores = Jogadores();
   HistContrats histContrats = HistContrats();
   // double pixelRatio = window.devicePixelRatio;
@@ -61,7 +57,6 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
 
   @override
   Widget list_controlo_antiDopp(BuildContext context) {
-    // double screenHeight = WidgetsBinding.instance.window.physicalSize.height;
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,

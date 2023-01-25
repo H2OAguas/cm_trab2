@@ -1,7 +1,5 @@
 import 'package:gestao_futebol/objectbox.g.dart';
 import '../models/jogador.dart';
-import '../data/hist_contrats.dart';
-import '../models/hist_contrat.dart';
 import '../lib.dart';
 
 class Jogadores {
@@ -17,8 +15,7 @@ class Jogadores {
         DateTime.utc(1900).millisecondsSinceEpoch,
         endDate.millisecondsSinceEpoch))
       ..order(Jogador_.dataUltCtrlDopp);
-    // final builder = objectbox.jogadorBox.query()
-    //   ..order(Jogador_.dataUltCtrlDopp);
+
     return builder.watch(triggerImmediately: true).map((query) => query.find());
   }
 

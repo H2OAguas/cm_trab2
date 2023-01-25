@@ -1,9 +1,7 @@
 import 'package:gestao_futebol/objectbox.g.dart';
-
 import '../lib.dart';
 import 'package:intl/intl.dart';
 import '../models/hist_contrat.dart';
-import '../models/jogador.dart';
 import '../models/equipa.dart';
 
 class HistContratCard extends StatefulWidget {
@@ -17,13 +15,6 @@ class HistContratCard extends StatefulWidget {
 }
 
 class _HistContratCardState extends State<HistContratCard> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  // }
-
-// widget.histContrat.idJogador
-
   @override
   Widget build(BuildContext context) {
     final equipaQuery = objectbox.equipaBox
@@ -32,10 +23,6 @@ class _HistContratCardState extends State<HistContratCard> {
     Equipa? equipaResult = equipaQuery.findFirst();
     equipaQuery.close;
     return GestureDetector(
-      // onTap: () {
-      //   Navigator.of(context).push(MaterialPageRoute(
-      //       builder: (context) => EquiReg(jogadorReg: widget.jogador)));
-      // },
       child: Container(
         margin: const EdgeInsets.all(5),
         child: Column(

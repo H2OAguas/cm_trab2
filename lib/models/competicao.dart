@@ -18,6 +18,4 @@ class Competicao {
       this.idEquipaVisitante = 0,
       this.golosCasa = 0,
       this.golosVisitante = 0});
-  // @Backlink()
-  // final equipas = ToMany<Equipa>();
 }

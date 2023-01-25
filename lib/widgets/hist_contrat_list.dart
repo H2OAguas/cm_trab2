@@ -5,7 +5,6 @@ import '../models/hist_contrat.dart';
 import '../data/hist_contrats.dart';
 import 'app_bar.dart';
 
-/// Generates and returns a widget with list of events stored in the Box.
 class HistContratList extends StatefulWidget {
   final int idJogador;
 
@@ -42,14 +41,6 @@ class _HistContratListState extends State<HistContratList> {
         const SizedBox(
           height: 10,
         ),
-        // const Text(
-        //   "Controlo Contratos",
-        //   style: TextStyle(
-        //     color: Colors.blue,
-        //     fontSize: 16.0,
-        //   ),
-        // ),
-        // list_jogadores_card(context),
       ]),
     );
   }

@@ -10,9 +10,4 @@ class Equipa {
   String nome;
 
   Equipa(this.nome, {this.id = 0});
-
-  // final competicao = ToOne<Competicao>();
-
-  // @Backlink('equipa')
-  // final histContrats = ToMany<HistContrat>();
 }

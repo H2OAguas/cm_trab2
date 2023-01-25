@@ -88,9 +88,6 @@ class _JogadorRegState extends State<JogadorReg> {
                             HistContratList(idJogador: widget.jogadorReg.id)))
                     .then((value) => refreshPage());
               },
-              // {
-              //   const HistContratList();
-              // },
             ),
           ],
         ),
@@ -98,60 +95,67 @@ class _JogadorRegState extends State<JogadorReg> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          // SizedBox(
-          //   height: 40,
-          //   width: 40,
-          //   child: FloatingActionButton(
-          //       onPressed: () {
-          //         // _showDeletionDialog();
-
-          //         // objectbox.jogadorBox.remove(widget.jogadorReg.id);
-          //       },
-          //       child: const Icon(Icons.delete_forever_outlined)),
-          // ),
-          // const SizedBox(width: 60),
           SizedBox(
+            height: 40,
+            width: 40,
             child: FloatingActionButton(
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(
-                          builder: (context) =>
-                              JogadorEdit(jogadorEdit: widget.jogadorReg)))
-                      .then((value) => refreshPage());
+                  _showDeletionDialog(context, widget.jogadorReg.id);
                 },
-                // child: const Text("+", style: TextStyle(fontSize: 29))),
-                child: Icon(Icons.border_color)),
+                heroTag: null,
+                child: const Icon(Icons.delete_forever_outlined)),
+          ),
+          const SizedBox(width: 60),
+          SizedBox(
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(
+                        builder: (context) =>
+                            JogadorEdit(jogadorEdit: widget.jogadorReg)))
+                    .then((value) => refreshPage());
+              },
+              // child: const Text("+", style: TextStyle(fontSize: 29))),
+              heroTag: null,
+              child: const Icon(Icons.border_color),
+            ),
           ),
         ],
       ),
     );
   }
 
-  Future<void> _showDeletionDialog() async {
+  Future<void> _showDeletionDialog(BuildContext context, int id) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('AlertDialog Title'),
+          backgroundColor: Colors.blue[50],
+          title: Text('Confirmação'),
+          elevation: 24.0,
           content: SingleChildScrollView(
             child: Column(
-              children: <Widget>[
-                Text('This is a demo alert dialog.'),
-                Text('Would you like to approve of this message?'),
+              children: const <Widget>[
+                Text('O jogador será eliminado permanentemente.'),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('Confirma a eliminação ?'),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Confirm'),
+              child: Text('Sim'),
               onPressed: () {
-                print('Confirmed');
+                objectbox.jogadorBox.remove(id);
+                Navigator.of(context).pop();
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Cancel'),
+              child: Text('Não'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -162,77 +166,3 @@ class _JogadorRegState extends State<JogadorReg> {
     );
   }
 }
-
-
-// class _JogadorRegState extends State<JogadorReg> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       // onTap: () {
-//       //   Navigator.of(context).push(MaterialPageRoute(
-//       //       builder: (context) => TaskPage(event: widget.event)));
-//       // },
-//       child: Container(
-//         margin: const EdgeInsets.all(5),
-//         child: Column(
-//           children: <Widget>[
-//             Container(
-//               decoration: BoxDecoration(
-//                 color: const Color.fromARGB(255, 243, 243, 243),
-//                 borderRadius: BorderRadius.circular(10),
-//                 boxShadow: const [
-//                   BoxShadow(
-//                     color: Color.fromARGB(255, 168, 168, 168),
-//                     blurRadius: 5,
-//                     offset: Offset(1, 2),
-//                   )
-//                 ],
-//               ),
-//               child: Row(
-//                 children: <Widget>[
-//                   Expanded(
-//                     child: Column(
-//                       children: [
-//                         Container(
-//                           alignment: Alignment.centerLeft,
-//                           padding: const EdgeInsets.all(5),
-//                           child: Text(
-//                             widget.jogadorReg.nome,
-//                             style: const TextStyle(
-//                                 fontSize: 25.0,
-//                                 height: 1.0,
-//                                 overflow: TextOverflow.fade),
-//                           ),
-//                         ),
-//                         Container(
-//                           alignment: Alignment.centerLeft,
-//                           padding: const EdgeInsets.all(10.0),
-//                           child: Row(
-//                             children: [
-//                               Text("Idade: ${widget.jogadorReg.idade}",
-//                                   style: const TextStyle(
-//                                       fontSize: 15.0,
-//                                       height: 1.0,
-//                                       overflow: TextOverflow.fade)),
-//                               const Spacer(),
-//                               Text(
-//                                   "Ult Ctrl AntiDopping: ${DateFormat('dd.MM.yyyy').format(widget.jogadorReg.dataUltCtrlDopp!)}",
-//                                   style: const TextStyle(
-//                                       fontSize: 15.0,
-//                                       height: 1.0,
-//                                       overflow: TextOverflow.fade))
-//                             ],
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

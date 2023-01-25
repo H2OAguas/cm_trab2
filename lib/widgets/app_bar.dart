@@ -1,9 +1,6 @@
 import 'package:gestao_futebol/widgets/equipa_list.dart';
 import 'package:gestao_futebol/widgets/jogador_page.dart';
-import 'package:gestao_futebol/widgets/hist_contrat_list.dart';
-
 import '../lib.dart';
-import 'jogador_reg.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override

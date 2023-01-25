@@ -15,7 +15,4 @@ class Jogador {
   Jogador(this.nome, this.idade, DateTime? dataUltCtrlDopp,
       {this.ativo = true, this.id = 0})
       : this.dataUltCtrlDopp = dataUltCtrlDopp ?? DateTime.now();
-
-  // @Backlink('jogador')
-  // final histContrats = ToMany<HistContrat>();
 }
