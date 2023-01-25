@@ -58,7 +58,8 @@ class _JogadorRegState extends State<JogadorReg> {
               height: 16,
             ),
             Text(
-              "Idade: ${widget.jogadorReg.idade ?? 'N/A'} - ${widget.jogadorReg.id ?? 'N/A'}",
+              //Foi adicionado à string da idade o numero de registo de forma a poder-se facilmente adicionar contratos
+              "Idade: ${widget.jogadorReg.idade ?? 'N/A'}",
               style: const TextStyle(
                   fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
             ),
@@ -94,16 +95,70 @@ class _JogadorRegState extends State<JogadorReg> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(
-                    builder: (context) =>
-                        JogadorEdit(jogadorEdit: widget.jogadorReg)))
-                .then((value) => refreshPage());
-          },
-          // child: const Text("+", style: TextStyle(fontSize: 29))),
-          child: Icon(Icons.border_color)),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          // SizedBox(
+          //   height: 40,
+          //   width: 40,
+          //   child: FloatingActionButton(
+          //       onPressed: () {
+          //         // _showDeletionDialog();
+
+          //         // objectbox.jogadorBox.remove(widget.jogadorReg.id);
+          //       },
+          //       child: const Icon(Icons.delete_forever_outlined)),
+          // ),
+          // const SizedBox(width: 60),
+          SizedBox(
+            child: FloatingActionButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(
+                          builder: (context) =>
+                              JogadorEdit(jogadorEdit: widget.jogadorReg)))
+                      .then((value) => refreshPage());
+                },
+                // child: const Text("+", style: TextStyle(fontSize: 29))),
+                child: Icon(Icons.border_color)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _showDeletionDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('AlertDialog Title'),
+          content: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Text('This is a demo alert dialog.'),
+                Text('Would you like to approve of this message?'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Confirm'),
+              onPressed: () {
+                print('Confirmed');
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

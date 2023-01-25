@@ -51,16 +51,26 @@ class _JogadorCardState extends State<JogadorCard> {
                         Container(
                           alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.all(5),
-                          child: Text(
-                            widget.jogador.nome,
-                            style: const TextStyle(
-                                fontSize: 25.0,
-                                height: 1.0,
-                                overflow: TextOverflow.fade),
+                          child: Row(
+                            children: [
+                              Text(
+                                widget.jogador.nome,
+                                style: const TextStyle(
+                                    fontSize: 25.0,
+                                    height: 1.0,
+                                    overflow: TextOverflow.fade),
+                              ),
+                              const Spacer(),
+                              Text("Id: ${widget.jogador.id}",
+                                  style: const TextStyle(
+                                      fontSize: 10.0,
+                                      height: 1.0,
+                                      overflow: TextOverflow.fade))
+                            ],
                           ),
                         ),
                         Container(
-                          alignment: Alignment.centerLeft,
+                          // alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.all(10.0),
                           child: Row(
                             children: [

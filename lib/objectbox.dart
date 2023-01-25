@@ -30,6 +30,15 @@ class ObjectBox {
     //Como não esta implementado alterações aos contratos, opta-se por, sempre que carrega a app, eliminar a tabela e recria-la.
     histContratBox.removeAll();
 
+    //Para facilitar a introdução de contratos em contexto de demonstração
+
+    // HistContrat histContrat7 = HistContrat(
+    //     idJogador: 4,
+    //     idEquipa: 7,
+    //     dataInicio: DateTime.utc(2022, 5, 16),
+    //     dataFinal: DateTime.utc(2024, 5, 16));
+    // histContratBox.putMany([histContrat7]);
+
     if (jogadorBox.isEmpty()) {
       _putJogadorDemoData();
     }
