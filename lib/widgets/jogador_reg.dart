@@ -14,9 +14,6 @@ class JogadorReg extends StatefulWidget {
 }
 
 class _JogadorRegState extends State<JogadorReg> {
-  // final Jogador jogadorReg;
-
-  // _JogadorRegState({Key key, @required this.jogadorReg}) : super(key: key);
   bool _active = false;
   void refreshPage() {
     setState(() {
