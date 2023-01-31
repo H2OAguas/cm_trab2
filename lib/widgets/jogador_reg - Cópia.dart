@@ -1,11 +1,8 @@
 import 'package:intl/intl.dart';
 import '../lib.dart';
 import '../models/jogador.dart';
-import '../models/hist_contrat.dart';
-import '../data/hist_contrats.dart';
 import './jogador_edit.dart';
 import './hist_contrat_list.dart';
-import '../widgets/hist_contrat_card.dart';
 
 class JogadorReg extends StatefulWidget {
   final Jogador jogadorReg;
@@ -23,12 +20,6 @@ class _JogadorRegState extends State<JogadorReg> {
       _active = !_active;
     });
   }
-
-  HistContrats histContrats = HistContrats();
-  HistContratCard Function(BuildContext, int) _itemBuilder(
-          List<HistContrat> histContrats) =>
-      (BuildContext context, int index) =>
-          HistContratCard(histContrat: histContrats[index]);
 
   @override
   Widget build(BuildContext context) {
@@ -55,82 +46,45 @@ class _JogadorRegState extends State<JogadorReg> {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
-              child: Text(
-                "Nome: ${widget.jogadorReg.nome}",
-                style: const TextStyle(
-                    fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-              ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            SizedBox(
-              child: Text(
-                //Foi adicionado à string da idade o numero de registo de forma a poder-se facilmente adicionar contratos
-                "Idade: ${widget.jogadorReg.idade ?? 'N/A'}",
-                style: const TextStyle(
-                    fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-              ),
-            ),
-            SizedBox(
-              child: Row(children: <Widget>[
-                const Text(
-                  "Ativo: ",
-                  style: TextStyle(
-                      fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-                ),
-                Checkbox(
-                    activeColor: Colors.green,
-                    value: widget.jogadorReg.ativo,
-                    onChanged: null),
-              ]),
-            ),
-            SizedBox(
-              child: Text(
-                "Data Ultimo Controlo Dooping: ${widget.jogadorReg.dataUltCtrlDopp != null ? DateFormat("dd-MM-yyyy").format(widget.jogadorReg.dataUltCtrlDopp!) : 'N/A'}",
-                style: const TextStyle(
-                    fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
-              ),
-            ),
-            // ElevatedButton(
-            //   child: const Text("Contratos"),
-            //   onPressed: () {
-            //     Navigator.of(context)
-            //         .push(MaterialPageRoute(
-            //             builder: (context) =>
-            //                 HistContratList(idJogador: widget.jogadorReg.id)))
-            //         .then((value) => refreshPage());
-            //   },
-            // ),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              "Contratos",
-              style: TextStyle(
+            Text(
+              "Nome: ${widget.jogadorReg.nome}",
+              style: const TextStyle(
                   fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
             ),
             const SizedBox(
               height: 16,
             ),
-            SizedBox(
-              // HistContratList(idJogador: widget.jogadorReg.id),
-              child: StreamBuilder<List<HistContrat>>(
-                stream: histContrats.getHistContratsId(widget.jogadorReg.id),
-                builder: (context, snapshot) {
-                  if (snapshot.data?.isNotEmpty ?? false) {
-                    return ListView.builder(
-                        // physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: snapshot.hasData ? snapshot.data!.length : 0,
-                        itemBuilder: _itemBuilder(snapshot.data ?? []));
-                  } else {
-                    return const Center(
-                        child: Text("Não existem contratos em vigor"));
-                  }
-                },
+            Text(
+              //Foi adicionado à string da idade o numero de registo de forma a poder-se facilmente adicionar contratos
+              "Idade: ${widget.jogadorReg.idade ?? 'N/A'}",
+              style: const TextStyle(
+                  fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
+            ),
+            Row(children: <Widget>[
+              const Text(
+                "Ativo: ",
+                style: TextStyle(
+                    fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
               ),
+              Checkbox(
+                  activeColor: Colors.green,
+                  value: widget.jogadorReg.ativo,
+                  onChanged: null),
+            ]),
+            Text(
+              "Data Ultimo Controlo Dooping: ${widget.jogadorReg.dataUltCtrlDopp != null ? DateFormat("dd-MM-yyyy").format(widget.jogadorReg.dataUltCtrlDopp!) : 'N/A'}",
+              style: const TextStyle(
+                  fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
+            ),
+            ElevatedButton(
+              child: const Text("Contratos"),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(
+                        builder: (context) =>
+                            HistContratList(idJogador: widget.jogadorReg.id)))
+                    .then((value) => refreshPage());
+              },
             ),
           ],
         ),
