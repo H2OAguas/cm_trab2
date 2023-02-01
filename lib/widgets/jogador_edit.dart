@@ -101,9 +101,10 @@ class _JogadorEditState extends State<JogadorEdit> {
                                 firstDate: DateTime(2022),
                                 lastDate: DateTime(2050))
                             .then((date) {
-                          setState(() {
+                          if (date != null) {
                             _dataUltCtrlDopp = date;
-                          });
+                          }
+                          setState(() {});
                         });
                       },
                     ),

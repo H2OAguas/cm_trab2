@@ -1,7 +1,5 @@
 import '../lib.dart';
 import 'package:intl/intl.dart';
-
-import '../data/jogadores.dart';
 import '../models/jogador.dart';
 import './jogador_reg.dart';
 
