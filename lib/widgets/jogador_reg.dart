@@ -87,8 +87,17 @@ class _JogadorRegState extends State<JogadorReg> {
               ]),
             ),
             SizedBox(
+              height: 60,
               child: Text(
                 "Data Ultimo Controlo Dooping: ${widget.jogadorReg.dataUltCtrlDopp != null ? DateFormat("dd-MM-yyyy").format(widget.jogadorReg.dataUltCtrlDopp!) : 'N/A'}",
+                style: const TextStyle(
+                    fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
+              ),
+            ),
+            SizedBox(
+              child: Text(
+                //Foi adicionado à string da idade o numero de registo de forma a poder-se facilmente adicionar contratos
+                "Nº dias de contrato: ${histContrats.getHistContratsNdias(widget.jogadorReg.id) ?? 'N/A'}",
                 style: const TextStyle(
                     fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
               ),

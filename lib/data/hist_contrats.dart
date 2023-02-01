@@ -37,4 +37,24 @@ class HistContrats {
         .watch(triggerImmediately: true)
         .map((query) => query.find());
   }
+
+  String getHistContratsNdias(int id) {
+    List<HistContrat> lstHistContract = objectbox.histContratBox
+        .query(HistContrat_.idJogador.equals(id))
+        .order(HistContrat_.dataFinal, flags: Order.descending)
+        .build()
+        .find();
+    if (lstHistContract.isEmpty) {
+      return "Sem contrato";
+    } else {
+      return (DateTime.now()
+          .difference(lstHistContract.first.dataInicio!)
+          .inDays
+          .toString());
+    }
+    // final builder = objectbox.histContratBox
+    //     .query(HistContrat_.idJogador.equals(id))
+    //     .order(HistContrat_.dataFinal, flags: Order.descending);
+    // return builder.watch(triggerImmediately: true).map((query) => query.find());
+  }
 }
