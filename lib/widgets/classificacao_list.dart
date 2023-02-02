@@ -44,9 +44,6 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
             const SizedBox(
               height: 10,
             ),
-            const SizedBox(
-              height: 10,
-            ),
             const Text(
               "Classificação Premier League",
               style: TextStyle(
@@ -71,7 +68,7 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: 540,
+            height: 220,
             child: StreamBuilder<List<Classificacao>>(
               stream: classificacoes.getClassificacoesLP(),
               builder: (context, snapshot) {
@@ -99,9 +96,9 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            height: 540,
+            height: 320,
             child: StreamBuilder<List<Classificacao>>(
-              stream: classificacoes.getClassificacoesLP(),
+              stream: classificacoes.getClassificacoesPL(),
               builder: (context, snapshot) {
                 if (snapshot.data?.isNotEmpty ?? false) {
                   return ListView.builder(

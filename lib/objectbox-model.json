@@ -133,9 +133,43 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "5:6296976720076639793",
+      "lastPropertyId": "5:1266428253722699193",
+      "name": "Classificacao",
+      "properties": [
+        {
+          "id": "1:817473724711005611",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5840656900074599561",
+          "name": "liga",
+          "type": 9
+        },
+        {
+          "id": "3:5560190240475915904",
+          "name": "nomeEquipa",
+          "type": 9
+        },
+        {
+          "id": "4:4428925313262850658",
+          "name": "pontos",
+          "type": 6
+        },
+        {
+          "id": "5:1266428253722699193",
+          "name": "jornada",
+          "type": 6
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "4:2260627275348808010",
+  "lastEntityId": "5:6296976720076639793",
   "lastIndexId": "7:4759506710432874446",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

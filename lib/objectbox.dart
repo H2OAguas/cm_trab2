@@ -31,7 +31,7 @@ class ObjectBox {
     histContratBox = Box<HistContrat>(store);
     //Como não esta implementado alterações aos contratos, opta-se por, sempre que carrega a app, eliminar a tabela e recria-la.
     histContratBox.removeAll();
-
+    classificacaoBox.removeAll();
     //Para facilitar a introdução de contratos em contexto de demonstração
 
     // HistContrat histContrat7 = HistContrat(
@@ -133,11 +133,7 @@ class ObjectBox {
 
   void _putClassificacaoDemoData() {
     Classificacao jogo1 = Classificacao(
-        id: 0,
-        liga: "Liga Portugal",
-        nomeEquipa: "Vitória SC",
-        pontos: 3,
-        jornada: 1);
+        liga: "Liga Portugal", nomeEquipa: "Vitória SC", pontos: 3, jornada: 1);
     Classificacao jogo2 = Classificacao(
         id: 0,
         liga: "Liga Portugal",
@@ -145,79 +141,42 @@ class ObjectBox {
         pontos: 6,
         jornada: 2);
     Classificacao jogo3 = Classificacao(
-        id: 0,
-        liga: "Liga Portugal",
-        nomeEquipa: "CD Tondela",
-        pontos: 9,
-        jornada: 3);
+        liga: "Liga Portugal", nomeEquipa: "CD Tondela", pontos: 9, jornada: 3);
     Classificacao jogo4 = Classificacao(
-        id: 0,
         liga: "Liga Portugal",
         nomeEquipa: "Portimonense SC",
         pontos: 12,
         jornada: 4);
     Classificacao jogo5 = Classificacao(
-        id: 0,
-        liga: "Liga Portugal",
-        nomeEquipa: "FC Porto",
-        pontos: 12,
-        jornada: 5);
+        liga: "Liga Portugal", nomeEquipa: "FC Porto", pontos: 12, jornada: 5);
     Classificacao jogo6 = Classificacao(
-        id: 0,
         liga: "Liga Portugal",
         nomeEquipa: "SL Benfica",
         pontos: 15,
         jornada: 1);
     Classificacao jogo7 = Classificacao(
-        id: 0,
-        liga: "Liga Portugal",
-        nomeEquipa: "SC Braga",
-        pontos: 6,
-        jornada: 2);
+        liga: "Liga Portugal", nomeEquipa: "SC Braga", pontos: 6, jornada: 2);
     Classificacao jogo8 = Classificacao(
-        id: 0,
         liga: "Liga Portugal",
         nomeEquipa: "Sporting CP",
         pontos: 9,
         jornada: 3);
     Classificacao jogo9 = Classificacao(
-        id: 0,
-        liga: "Liga Portugal",
-        nomeEquipa: "Farense",
-        pontos: 9,
-        jornada: 4);
+        liga: "Liga Portugal", nomeEquipa: "Farense", pontos: 9, jornada: 4);
     Classificacao jogo10 = Classificacao(
-        id: 0,
-        liga: "Premier League",
-        nomeEquipa: "Arsenal",
-        pontos: 10,
-        jornada: 5);
+        liga: "Premier League", nomeEquipa: "Arsenal", pontos: 10, jornada: 5);
     Classificacao jogo11 = Classificacao(
-        id: 0,
-        liga: "Premier League",
-        nomeEquipa: "Brighton",
-        pontos: 0,
-        jornada: 1);
+        liga: "Premier League", nomeEquipa: "Brighton", pontos: 0, jornada: 1);
     Classificacao jogo12 = Classificacao(
-        id: 0,
         liga: "Premier League",
         nomeEquipa: "Manchester United",
         pontos: 1,
         jornada: 2);
     Classificacao jogo13 = Classificacao(
-        id: 0,
-        liga: "Premier League",
-        nomeEquipa: "Liverpool",
-        pontos: 4,
-        jornada: 3);
+        liga: "Premier League", nomeEquipa: "Liverpool", pontos: 4, jornada: 3);
     Classificacao jogo14 = Classificacao(
-        id: 0,
-        liga: "Premier League",
-        nomeEquipa: "Chelsea",
-        pontos: 7,
-        jornada: 4);
+        liga: "Premier League", nomeEquipa: "Chelsea", pontos: 7, jornada: 4);
     Classificacao jogo15 = Classificacao(
-        id: 0,
         liga: "Premier League",
         nomeEquipa: "Tottenham Hotspur",
         pontos: 8,

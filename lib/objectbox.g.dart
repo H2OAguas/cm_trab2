@@ -14,6 +14,7 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
+import 'models/classificacao.dart';
 import 'models/competicao.dart';
 import 'models/equipa.dart';
 import 'models/hist_contrat.dart';
@@ -152,6 +153,40 @@ final _entities = <ModelEntity>[
             flags: 0)
       ],
       relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(5, 6296976720076639793),
+      name: 'Classificacao',
+      lastPropertyId: const IdUid(5, 1266428253722699193),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 817473724711005611),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        ModelProperty(
+            id: const IdUid(2, 5840656900074599561),
+            name: 'liga',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 5560190240475915904),
+            name: 'nomeEquipa',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 4428925313262850658),
+            name: 'pontos',
+            type: 6,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 1266428253722699193),
+            name: 'jornada',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -175,7 +210,7 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(4, 2260627275348808010),
+      lastEntityId: const IdUid(5, 6296976720076639793),
       lastIndexId: const IdUid(7, 4759506710432874446),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
@@ -354,6 +389,43 @@ ModelDefinition getObjectBoxModel() {
                   : DateTime.fromMillisecondsSinceEpoch(dataFinalValue));
 
           return object;
+        }),
+    Classificacao: EntityDefinition<Classificacao>(
+        model: _entities[4],
+        toOneRelations: (Classificacao object) => [],
+        toManyRelations: (Classificacao object) => {},
+        getId: (Classificacao object) => object.id,
+        setId: (Classificacao object, int id) {
+          object.id = id;
+        },
+        objectToFB: (Classificacao object, fb.Builder fbb) {
+          final ligaOffset = fbb.writeString(object.liga);
+          final nomeEquipaOffset = fbb.writeString(object.nomeEquipa);
+          fbb.startTable(6);
+          fbb.addInt64(0, object.id);
+          fbb.addOffset(1, ligaOffset);
+          fbb.addOffset(2, nomeEquipaOffset);
+          fbb.addInt64(3, object.pontos);
+          fbb.addInt64(4, object.jornada);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+
+          final object = Classificacao(
+              id: const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0),
+              liga: const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 6, ''),
+              nomeEquipa: const fb.StringReader(asciiOptimization: true)
+                  .vTableGet(buffer, rootOffset, 8, ''),
+              pontos:
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0),
+              jornada:
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0));
+
+          return object;
         })
   };
 
@@ -441,4 +513,27 @@ class HistContrat_ {
   /// see [HistContrat.idEquipa]
   static final idEquipa =
       QueryIntegerProperty<HistContrat>(_entities[3].properties[4]);
+}
+
+/// [Classificacao] entity fields to define ObjectBox queries.
+class Classificacao_ {
+  /// see [Classificacao.id]
+  static final id =
+      QueryIntegerProperty<Classificacao>(_entities[4].properties[0]);
+
+  /// see [Classificacao.liga]
+  static final liga =
+      QueryStringProperty<Classificacao>(_entities[4].properties[1]);
+
+  /// see [Classificacao.nomeEquipa]
+  static final nomeEquipa =
+      QueryStringProperty<Classificacao>(_entities[4].properties[2]);
+
+  /// see [Classificacao.pontos]
+  static final pontos =
+      QueryIntegerProperty<Classificacao>(_entities[4].properties[3]);
+
+  /// see [Classificacao.jornada]
+  static final jornada =
+      QueryIntegerProperty<Classificacao>(_entities[4].properties[4]);
 }
