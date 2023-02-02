@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gestao_futebol/models/hist_contrat.dart';
-
 import 'models/jogador.dart';
 import 'models/competicao.dart';
+import 'models/classificacao.dart';
 import 'models/equipa.dart';
 import 'objectbox.g.dart';
 
@@ -17,6 +17,7 @@ class ObjectBox {
   late final Box<Competicao> competicaoBox;
   late final Box<Equipa> equipaBox;
   late final Box<HistContrat> histContratBox;
+  late final Box<Classificacao> classificacaoBox;
 
   ObjectBox._create(this.store) {
     // if (Admin.isAvailable()) {
@@ -26,6 +27,7 @@ class ObjectBox {
     jogadorBox = Box<Jogador>(store);
     competicaoBox = Box<Competicao>(store);
     equipaBox = Box<Equipa>(store);
+    classificacaoBox = Box<Classificacao>(store);
     histContratBox = Box<HistContrat>(store);
     //Como não esta implementado alterações aos contratos, opta-se por, sempre que carrega a app, eliminar a tabela e recria-la.
     histContratBox.removeAll();
@@ -50,6 +52,9 @@ class ObjectBox {
     }
     if (histContratBox.isEmpty()) {
       _putHistContratDemoData();
+    }
+    if (classificacaoBox.isEmpty()) {
+      _putClassificacaoDemoData();
     }
   }
 
@@ -97,12 +102,144 @@ class ObjectBox {
   }
 
   void _putCompeticaoDemoData() {
-    Competicao competicao1 = Competicao("1", 1,
-        idEquipaCasa: 1, idEquipaVisitante: 1, golosCasa: 1, golosVisitante: 2);
-    Competicao competicao2 = Competicao("X", 2,
+    Competicao competicao1 = Competicao("Taça de Portugal", 1,
+        idEquipaCasa: 1, idEquipaVisitante: 2, golosCasa: 1, golosVisitante: 2);
+    Competicao competicao2 = Competicao("La Liga", 2,
         idEquipaCasa: 1, idEquipaVisitante: 3, golosCasa: 3, golosVisitante: 2);
+    Competicao competicao3 = Competicao("Champions League", 2,
+        idEquipaCasa: 1, idEquipaVisitante: 3, golosCasa: 3, golosVisitante: 2);
+    Competicao competicao4 = Competicao("Liga Portuguesa", 2,
+        idEquipaCasa: 1, idEquipaVisitante: 3, golosCasa: 3, golosVisitante: 2);
+    Competicao competicao5 = Competicao("Premier League", 2,
+        idEquipaCasa: 25,
+        idEquipaVisitante: 23,
+        golosCasa: 3,
+        golosVisitante: 2);
+    Competicao competicao6 = Competicao("Premier League", 2,
+        idEquipaCasa: 21,
+        idEquipaVisitante: 16,
+        golosCasa: 3,
+        golosVisitante: 4);
 
-    competicaoBox.putMany([competicao1, competicao2]);
+    competicaoBox.putMany([
+      competicao1,
+      competicao2,
+      competicao3,
+      competicao4,
+      competicao5,
+      competicao6
+    ]);
+  }
+
+  void _putClassificacaoDemoData() {
+    Classificacao jogo1 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "Vitória SC",
+        pontos: 3,
+        jornada: 1);
+    Classificacao jogo2 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "Gil Vicente FC",
+        pontos: 6,
+        jornada: 2);
+    Classificacao jogo3 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "CD Tondela",
+        pontos: 9,
+        jornada: 3);
+    Classificacao jogo4 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "Portimonense SC",
+        pontos: 12,
+        jornada: 4);
+    Classificacao jogo5 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "FC Porto",
+        pontos: 12,
+        jornada: 5);
+    Classificacao jogo6 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "SL Benfica",
+        pontos: 15,
+        jornada: 1);
+    Classificacao jogo7 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "SC Braga",
+        pontos: 6,
+        jornada: 2);
+    Classificacao jogo8 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "Sporting CP",
+        pontos: 9,
+        jornada: 3);
+    Classificacao jogo9 = Classificacao(
+        id: 0,
+        liga: "Liga Portugal",
+        nomeEquipa: "Farense",
+        pontos: 9,
+        jornada: 4);
+    Classificacao jogo10 = Classificacao(
+        id: 0,
+        liga: "Premier League",
+        nomeEquipa: "Arsenal",
+        pontos: 10,
+        jornada: 5);
+    Classificacao jogo11 = Classificacao(
+        id: 0,
+        liga: "Premier League",
+        nomeEquipa: "Brighton",
+        pontos: 0,
+        jornada: 1);
+    Classificacao jogo12 = Classificacao(
+        id: 0,
+        liga: "Premier League",
+        nomeEquipa: "Manchester United",
+        pontos: 1,
+        jornada: 2);
+    Classificacao jogo13 = Classificacao(
+        id: 0,
+        liga: "Premier League",
+        nomeEquipa: "Liverpool",
+        pontos: 4,
+        jornada: 3);
+    Classificacao jogo14 = Classificacao(
+        id: 0,
+        liga: "Premier League",
+        nomeEquipa: "Chelsea",
+        pontos: 7,
+        jornada: 4);
+    Classificacao jogo15 = Classificacao(
+        id: 0,
+        liga: "Premier League",
+        nomeEquipa: "Tottenham Hotspur",
+        pontos: 8,
+        jornada: 5);
+
+    classificacaoBox.putMany([
+      jogo1,
+      jogo2,
+      jogo3,
+      jogo4,
+      jogo5,
+      jogo6,
+      jogo7,
+      jogo8,
+      jogo9,
+      jogo10,
+      jogo11,
+      jogo12,
+      jogo13,
+      jogo14,
+      jogo15,
+    ]);
   }
 
   void _putEquipaDemoData() {
@@ -131,6 +268,8 @@ class ObjectBox {
     Equipa equipa23 = Equipa("Chelsea");
     Equipa equipa24 = Equipa("Atletico Madrid");
     Equipa equipa25 = Equipa("Tottenham Hotspur");
+    Equipa equipa26 = Equipa("Arsenal");
+    Equipa equipa27 = Equipa("Brighton");
 
     equipaBox.putMany([
       equipa1,
@@ -157,7 +296,9 @@ class ObjectBox {
       equipa22,
       equipa23,
       equipa24,
-      equipa25
+      equipa25,
+      equipa26,
+      equipa27
     ]);
   }
 
