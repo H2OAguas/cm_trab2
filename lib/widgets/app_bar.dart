@@ -1,5 +1,6 @@
 import 'package:gestao_futebol/widgets/equipa_list.dart';
 import 'package:gestao_futebol/widgets/jogador_page.dart';
+import 'package:gestao_futebol/widgets/classificacoes_page.dart';
 import '../lib.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -29,8 +30,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => Teste()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ClassificacoesPage()));
                   },
                   child: Text('Competições',
                       style: Theme.of(context).textTheme.headline6),
