@@ -9,87 +9,90 @@ import 'lib.dart';
 
 /// Provides access to the ObjectBox Store throughout the app.
 late ObjectBox objectbox;
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   objectbox = await ObjectBox.create();
+//   runApp(const MyApp());
+// }
 
-  objectbox = await ObjectBox.create();
-  runApp(const CtrlDoppList());
-}
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-        textTheme: const TextTheme(
-          headline6: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-      home: Navigator(
-        onGenerateRoute: (settings) {
-          return MaterialPageRoute(
-            builder: (context) => Scaffold(
-              appBar: MyAppBar(),
-              body: Column(
-                children: const [
-                  CtrlDoppList(),
-                ],
-              ),
-            ),
-          );
-
-          // @override
-          // Widget build(BuildContext context) {
-          //   return MaterialApp(
-          //     title: 'ObjectBox Relations Application',
-          //     theme: ThemeData(
-          //       primarySwatch: Colors.blue,
-          //     ),
-          //     home: const MyHomePage(),
-          //   );
-          // }
-        },
-      ),
-    );
-  }
-}
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+//     );
+//   }
+// }
 
 // class MyHomePage extends StatefulWidget {
-//   const MyHomePage({Key? key}) : super(key: key);
+//   const MyHomePage({super.key, required this.title});
+
+//   final String title;
 
 //   @override
 //   State<MyHomePage> createState() => _MyHomePageState();
 // }
 
 // class _MyHomePageState extends State<MyHomePage> {
+//   int _counter = 0;
+
+//   void _incrementCounter() {
+//     setState(() {
+//       _counter++;
+//     });
+//   }
+
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text("Jogadores com mais de 6 meses control AntiDopping"),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(5.0),
+//       appBar: MyAppBar(),
+//       body: Center(
 //         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
 //           children: const [
-//             Expanded(child: CtrlDoppList()),
+//             CtrlDoppList(),
+//             // const Text(
+//             //   'You have pushed the button this many times:',
+//             // ),
+//             // Text(
+//             //   '$_counter',
+//             //   style: Theme.of(context).textTheme.headline4,
+//             // ),
 //           ],
 //         ),
 //       ),
 //       // floatingActionButton: FloatingActionButton(
-//       //     onPressed: () {
-//       //       Navigator.of(context).push(
-//       //           MaterialPageRoute(builder: (context) => const AddEvent()));
-//       //     },
-//       //     child: const Text("+", style: TextStyle(fontSize: 29))),
+//       //   onPressed: _incrementCounter,
+//       //   tooltip: 'Increment',
+//       //   child: const Icon(Icons.add),
+//       // ), // This trailing comma makes auto-formatting nicer for build methods.
 //     );
 //   }
 // }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  objectbox = await ObjectBox.create();
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: Scaffold(
+        // appBar: MyAppBar(),
+        body: CtrlDoppList(),
+      ),
+    );
+  }
+}

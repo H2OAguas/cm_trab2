@@ -61,7 +61,7 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Container(
+          SizedBox(
             height: 300,
             child: StreamBuilder<List<Jogador>>(
               stream: jogadores.getJogadoresCtrlDopp(),
@@ -91,7 +91,7 @@ class _CtrlDoppListState extends State<CtrlDoppList> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Container(
+          SizedBox(
             height: 300,
             child: StreamBuilder<List<Jogador>>(
               stream: histContrats.getHistContratExpering(),

@@ -98,9 +98,10 @@ class _JogadorAddState extends State<JogadorAdd> {
                                 firstDate: DateTime(2010),
                                 lastDate: DateTime(2050))
                             .then((date) {
-                          setState(() {
+                          if (date != null) {
                             _dataUltCtrlDopp = date;
-                          });
+                          }
+                          setState(() {});
                         });
                       },
                     ),

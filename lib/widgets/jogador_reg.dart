@@ -4,7 +4,6 @@ import '../models/jogador.dart';
 import '../models/hist_contrat.dart';
 import '../data/hist_contrats.dart';
 import './jogador_edit.dart';
-import './hist_contrat_list.dart';
 import '../widgets/hist_contrat_card.dart';
 
 class JogadorReg extends StatefulWidget {
@@ -97,7 +96,7 @@ class _JogadorRegState extends State<JogadorReg> {
             SizedBox(
               child: Text(
                 //Foi adicionado à string da idade o numero de registo de forma a poder-se facilmente adicionar contratos
-                "Nº dias de contrato: ${histContrats.getHistContratsNdias(widget.jogadorReg.id) ?? 'N/A'}",
+                "Nº dias de contrato: ${histContrats.getHistContratsNdias(widget.jogadorReg.id)}",
                 style: const TextStyle(
                     fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
               ),

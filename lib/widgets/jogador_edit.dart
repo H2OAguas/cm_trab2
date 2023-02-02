@@ -120,7 +120,7 @@ class _JogadorEditState extends State<JogadorEdit> {
                     objectbox.jogadorBox.put(widget.jogadorEdit);
                     Navigator.pop(context);
                   },
-                  child: Text('Gravar'),
+                  child: const Text('Gravar'),
                 ),
               ],
             ),
