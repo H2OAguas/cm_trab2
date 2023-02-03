@@ -23,18 +23,34 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
       (BuildContext context, int index) =>
           ClassificacaoCard(classificacao: classificacoes[index]);
 
+  String dropdownValue = 'J1';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: MyAppBar(),
       body: SingleChildScrollView(
-        child: SingleChildScrollView(
-          child: Column(children: [
+        child: Column(
+          children: [
+            DropdownButton(
+              value: dropdownValue,
+              items: [
+                DropdownMenuItem(child: Text("J1"), value: "J1"),
+                DropdownMenuItem(child: Text("J2"), value: "J2"),
+                DropdownMenuItem(child: Text("J3"), value: "J3"),
+                DropdownMenuItem(child: Text("J4"), value: "J4"),
+                DropdownMenuItem(child: Text("J5"), value: "J5"),
+              ],
+              onChanged: (value) {
+                setState(() {
+                  dropdownValue = value.toString();
+                });
+              },
+            ),
             const SizedBox(
               height: 10,
             ),
             const Text(
-              "Classificação Liga Portuguesa",
+              "Classificação Liga Portugal BWIN",
               style: TextStyle(
                 color: Colors.blue,
                 fontSize: 16.0,
@@ -45,7 +61,7 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
               height: 10,
             ),
             const Text(
-              "Classificação Premier League",
+              "Classificação Liga Portugal 2",
               style: TextStyle(
                 color: Colors.blue,
                 fontSize: 16.0,
@@ -55,65 +71,96 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
             const SizedBox(
               height: 10,
             ),
-          ]),
+          ],
         ),
       ),
     );
   }
 
-  // ignore: non_constant_identifier_names
   Widget _ListClassificacaoCard(BuildContext context) {
+    Stream<List<Classificacao>> stream = Stream.empty();
+    switch (dropdownValue) {
+      case 'J1':
+        stream = classificacoes.getClassificacoesLPB1();
+        break;
+      case 'J2':
+        stream = classificacoes.getClassificacoesLPB2();
+        break;
+      case 'J3':
+        stream = classificacoes.getClassificacoesLPB3();
+        break;
+      case 'J4':
+        stream = classificacoes.getClassificacoesLPB4();
+        break;
+      case 'J5':
+        stream = classificacoes.getClassificacoesLPB5();
+        break;
+    }
     return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Container(
-            height: 220,
-            child: StreamBuilder<List<Classificacao>>(
-              stream: classificacoes.getClassificacoesLP(),
-              builder: (context, snapshot) {
-                if (snapshot.data?.isNotEmpty ?? false) {
-                  return ListView.builder(
-                      // physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: snapshot.hasData ? snapshot.data!.length : 0,
-                      itemBuilder: _itemBuilder(snapshot.data ?? []));
-                } else {
-                  return const Center(child: Text(""));
-                }
-              },
-            ),
+        child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          height: 300,
+          child: StreamBuilder<List<Classificacao>>(
+            stream: stream,
+            builder: (context, snapshot) {
+              if (snapshot.data?.isNotEmpty ?? false) {
+                return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.hasData ? snapshot.data!.length : 0,
+                    itemBuilder: _itemBuilder(snapshot.data ?? []));
+              } else {
+                return const Center(child: Text(""));
+              }
+            },
           ),
-        ],
-      ),
-    );
+        ),
+      ],
+    ));
   }
 
   // ignore: non_constant_identifier_names
   Widget _ListClassificacaoCard2(BuildContext context) {
+    Stream<List<Classificacao>> stream = Stream.empty();
+    switch (dropdownValue) {
+      case 'J1':
+        stream = classificacoes.getClassificacoesLP1();
+        break;
+      case 'J2':
+        stream = classificacoes.getClassificacoesLP2();
+        break;
+      case 'J3':
+        stream = classificacoes.getClassificacoesLP3();
+        break;
+      case 'J4':
+        stream = classificacoes.getClassificacoesLP4();
+        break;
+      case 'J5':
+        stream = classificacoes.getClassificacoesLP5();
+        break;
+    }
     return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Container(
-            height: 320,
-            child: StreamBuilder<List<Classificacao>>(
-              stream: classificacoes.getClassificacoesPL(),
-              builder: (context, snapshot) {
-                if (snapshot.data?.isNotEmpty ?? false) {
-                  return ListView.builder(
-                      // physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: snapshot.hasData ? snapshot.data!.length : 0,
-                      itemBuilder: _itemBuilder(snapshot.data ?? []));
-                } else {
-                  return const Center(child: Text(""));
-                }
-              },
-            ),
+        child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          height: 300,
+          child: StreamBuilder<List<Classificacao>>(
+            stream: stream,
+            builder: (context, snapshot) {
+              if (snapshot.data?.isNotEmpty ?? false) {
+                return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.hasData ? snapshot.data!.length : 0,
+                    itemBuilder: _itemBuilder(snapshot.data ?? []));
+              } else {
+                return const Center(child: Text(""));
+              }
+            },
           ),
-        ],
-      ),
-    );
+        ),
+      ],
+    ));
   }
 }
