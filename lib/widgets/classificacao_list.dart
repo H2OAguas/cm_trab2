@@ -33,12 +33,12 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
           children: [
             DropdownButton(
               value: dropdownValue,
-              items: [
-                DropdownMenuItem(child: Text("J1"), value: "J1"),
-                DropdownMenuItem(child: Text("J2"), value: "J2"),
-                DropdownMenuItem(child: Text("J3"), value: "J3"),
-                DropdownMenuItem(child: Text("J4"), value: "J4"),
-                DropdownMenuItem(child: Text("J5"), value: "J5"),
+              items: const [
+                DropdownMenuItem(child: Text("Jornada 1"), value: "J1"),
+                DropdownMenuItem(child: Text("Jornada 2"), value: "J2"),
+                DropdownMenuItem(child: Text("Jornada 3"), value: "J3"),
+                DropdownMenuItem(child: Text("Jornada 4"), value: "J4"),
+                DropdownMenuItem(child: Text("Jornada 5"), value: "J5"),
               ],
               onChanged: (value) {
                 setState(() {

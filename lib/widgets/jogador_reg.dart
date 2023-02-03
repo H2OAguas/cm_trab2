@@ -3,6 +3,7 @@ import '../lib.dart';
 import '../models/jogador.dart';
 import '../models/hist_contrat.dart';
 import '../data/hist_contrats.dart';
+import './hist_contrat_add.dart';
 import './jogador_edit.dart';
 import '../widgets/hist_contrat_card.dart';
 
@@ -114,10 +115,32 @@ class _JogadorRegState extends State<JogadorReg> {
             const SizedBox(
               height: 30,
             ),
-            const Text(
-              "Contratos",
-              style: TextStyle(
-                  fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
+            Container(
+              child: Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                const Text(
+                  "Contratos",
+                  style: TextStyle(
+                      fontSize: 20.0, height: 1.0, overflow: TextOverflow.fade),
+                ),
+                Spacer(),
+                SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(
+                              builder: (context) => HistContratAdd(
+                                  // idJogador: widget.jogadorReg.id)))
+                                  histContratJogador: widget.jogadorReg)))
+                          .then((value) => refreshPage());
+                    },
+                    // child: const Text("+", style: TextStyle(fontSize: 29))),
+                    heroTag: null,
+                    child: const Icon(Icons.add_card_rounded),
+                  ),
+                ),
+              ]),
             ),
             const SizedBox(
               height: 16,

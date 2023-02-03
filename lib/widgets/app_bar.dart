@@ -22,7 +22,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                         builder: (context) => const JogadorPage()));
                   },
                   child: Text('Jogadores',
-                      style: Theme.of(context).textTheme.headline6),
+                      style: Theme.of(context).textTheme.titleMedium),
                 ),
               ),
             ),
@@ -34,7 +34,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                         builder: (context) => const ClassificacoesPage()));
                   },
                   child: Text('Competições',
-                      style: Theme.of(context).textTheme.headline6),
+                      // style: Theme.of(context).textTheme.headline6),
+                      style: Theme.of(context).textTheme.titleMedium),
                 ),
               ),
             ),
@@ -49,12 +50,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                     );
                   },
                   child: Text('Equipas',
-                      style: Theme.of(context).textTheme.headline6),
+                      style: Theme.of(context).textTheme.titleMedium),
                 ),
               ),
             ),
           ],
         ),
+        const SizedBox(height: 5),
       ],
     ));
   }
