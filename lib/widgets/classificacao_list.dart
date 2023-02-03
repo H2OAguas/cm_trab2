@@ -23,7 +23,7 @@ class _ClassificacaoListState extends State<ClassificacaoList> {
       (BuildContext context, int index) =>
           ClassificacaoCard(classificacao: classificacoes[index]);
 
-  String dropdownValue = 'J1';
+  String dropdownValue = 'J5';
 
   @override
   Widget build(BuildContext context) {
