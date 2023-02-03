@@ -32,6 +32,7 @@ class ObjectBox {
     //Como não esta implementado alterações aos contratos, opta-se por, sempre que carrega a app, eliminar a tabela e recria-la.
     histContratBox.removeAll();
     classificacaoBox.removeAll();
+
     //Para facilitar a introdução de contratos em contexto de demonstração
 
     // HistContrat histContrat7 = HistContrat(
@@ -110,12 +111,12 @@ class ObjectBox {
         idEquipaCasa: 1, idEquipaVisitante: 3, golosCasa: 3, golosVisitante: 2);
     Competicao competicao4 = Competicao("Liga Portuguesa", 2,
         idEquipaCasa: 1, idEquipaVisitante: 3, golosCasa: 3, golosVisitante: 2);
-    Competicao competicao5 = Competicao("Premier League", 2,
+    Competicao competicao5 = Competicao("liga portugal 2", 2,
         idEquipaCasa: 25,
         idEquipaVisitante: 23,
         golosCasa: 3,
         golosVisitante: 2);
-    Competicao competicao6 = Competicao("Premier League", 2,
+    Competicao competicao6 = Competicao("liga portugal 2", 2,
         idEquipaCasa: 21,
         idEquipaVisitante: 16,
         golosCasa: 3,
@@ -133,54 +134,375 @@ class ObjectBox {
 
   void _putClassificacaoDemoData() {
     Classificacao jogo1 = Classificacao(
-        liga: "Liga Portugal", nomeEquipa: "Vitória SC", pontos: 3, jornada: 1);
+        liga: "liga portugal bwin",
+        nomeEquipa: "Vitória SC",
+        pontos: 3,
+        jornada: 1);
     Classificacao jogo2 = Classificacao(
-        id: 0,
-        liga: "Liga Portugal",
+        liga: "liga portugal bwin",
         nomeEquipa: "Gil Vicente FC",
-        pontos: 6,
-        jornada: 2);
+        pontos: 3,
+        jornada: 1);
     Classificacao jogo3 = Classificacao(
-        liga: "Liga Portugal", nomeEquipa: "CD Tondela", pontos: 9, jornada: 3);
+        liga: "liga portugal bwin",
+        nomeEquipa: "Marítimo M.",
+        pontos: 0,
+        jornada: 1);
     Classificacao jogo4 = Classificacao(
-        liga: "Liga Portugal",
+        liga: "liga portugal bwin",
         nomeEquipa: "Portimonense SC",
-        pontos: 12,
-        jornada: 4);
+        pontos: 0,
+        jornada: 1);
     Classificacao jogo5 = Classificacao(
-        liga: "Liga Portugal", nomeEquipa: "FC Porto", pontos: 12, jornada: 5);
+        liga: "liga portugal bwin",
+        nomeEquipa: "FC Porto",
+        pontos: 3,
+        jornada: 1);
     Classificacao jogo6 = Classificacao(
-        liga: "Liga Portugal",
+        liga: "liga portugal bwin",
         nomeEquipa: "SL Benfica",
-        pontos: 15,
+        pontos: 3,
         jornada: 1);
     Classificacao jogo7 = Classificacao(
-        liga: "Liga Portugal", nomeEquipa: "SC Braga", pontos: 6, jornada: 2);
-    Classificacao jogo8 = Classificacao(
-        liga: "Liga Portugal",
-        nomeEquipa: "Sporting CP",
-        pontos: 9,
-        jornada: 3);
-    Classificacao jogo9 = Classificacao(
-        liga: "Liga Portugal", nomeEquipa: "Farense", pontos: 9, jornada: 4);
-    Classificacao jogo10 = Classificacao(
-        liga: "Premier League", nomeEquipa: "Arsenal", pontos: 10, jornada: 5);
-    Classificacao jogo11 = Classificacao(
-        liga: "Premier League", nomeEquipa: "Brighton", pontos: 0, jornada: 1);
-    Classificacao jogo12 = Classificacao(
-        liga: "Premier League",
-        nomeEquipa: "Manchester United",
+        liga: "liga portugal bwin",
+        nomeEquipa: "SC Braga",
         pontos: 1,
+        jornada: 1);
+    Classificacao jogo8 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Sporting CP",
+        pontos: 1,
+        jornada: 1);
+    Classificacao jogo9 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Vitória SC",
+        pontos: 6,
+        jornada: 2);
+    Classificacao jogo10 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Gil Vicente FC",
+        pontos: 3,
+        jornada: 2);
+    Classificacao jogo11 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Marítimo M.",
+        pontos: 0,
+        jornada: 2);
+    Classificacao jogo12 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Portimonense SC",
+        pontos: 3,
         jornada: 2);
     Classificacao jogo13 = Classificacao(
-        liga: "Premier League", nomeEquipa: "Liverpool", pontos: 4, jornada: 3);
+        liga: "liga portugal bwin",
+        nomeEquipa: "FC Porto",
+        pontos: 6,
+        jornada: 2);
     Classificacao jogo14 = Classificacao(
-        liga: "Premier League", nomeEquipa: "Chelsea", pontos: 7, jornada: 4);
+        liga: "liga portugal bwin",
+        nomeEquipa: "SL Benfica",
+        pontos: 6,
+        jornada: 2);
     Classificacao jogo15 = Classificacao(
-        liga: "Premier League",
-        nomeEquipa: "Tottenham Hotspur",
-        pontos: 8,
+        liga: "liga portugal bwin",
+        nomeEquipa: "SC Braga",
+        pontos: 4,
+        jornada: 2);
+    Classificacao jogo16 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Sporting CP",
+        pontos: 4,
+        jornada: 2);
+    Classificacao jogo17 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Vitória SC",
+        pontos: 6,
+        jornada: 3);
+    Classificacao jogo18 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Gil Vicente FC",
+        pontos: 4,
+        jornada: 3);
+    Classificacao jogo19 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Marítimo M.",
+        pontos: 0,
+        jornada: 3);
+    Classificacao jogo20 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Portimonense SC",
+        pontos: 6,
+        jornada: 3);
+    Classificacao jogo21 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "FC Porto",
+        pontos: 9,
+        jornada: 3);
+    Classificacao jogo22 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "SL Benfica",
+        pontos: 9,
+        jornada: 3);
+    Classificacao jogo23 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "SC Braga",
+        pontos: 7,
+        jornada: 3);
+    Classificacao jogo24 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Sporting CP",
+        pontos: 4,
+        jornada: 3);
+    Classificacao jogo25 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Vitória SC",
+        pontos: 6,
+        jornada: 4);
+    Classificacao jogo26 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Gil Vicente FC",
+        pontos: 5,
+        jornada: 4);
+    Classificacao jogo27 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Marítimo M.",
+        pontos: 0,
+        jornada: 4);
+    Classificacao jogo28 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Portimonense SC",
+        pontos: 9,
+        jornada: 4);
+    Classificacao jogo29 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "FC Porto",
+        pontos: 9,
+        jornada: 4);
+    Classificacao jogo30 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "SL Benfica",
+        pontos: 12,
+        jornada: 4);
+    Classificacao jogo31 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "SC Braga",
+        pontos: 10,
+        jornada: 4);
+    Classificacao jogo32 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Sporting CP",
+        pontos: 4,
+        jornada: 4);
+    Classificacao jogo33 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Vitória SC",
+        pontos: 6,
         jornada: 5);
+    Classificacao jogo34 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Gil Vicente FC",
+        pontos: 5,
+        jornada: 5);
+    Classificacao jogo35 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Marítimo M.",
+        pontos: 0,
+        jornada: 5);
+    Classificacao jogo36 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Portimonense SC",
+        pontos: 12,
+        jornada: 5);
+    Classificacao jogo37 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "FC Porto",
+        pontos: 12,
+        jornada: 5);
+    Classificacao jogo38 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "SL Benfica",
+        pontos: 15,
+        jornada: 5);
+    Classificacao jogo39 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "SC Braga",
+        pontos: 13,
+        jornada: 5);
+    Classificacao jogo40 = Classificacao(
+        liga: "liga portugal bwin",
+        nomeEquipa: "Sporting CP",
+        pontos: 7,
+        jornada: 5);
+    Classificacao jogo41 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Académico de Viseu FC",
+        pontos: 1,
+        jornada: 1);
+    Classificacao jogo42 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Estrela Amadora",
+        pontos: 1,
+        jornada: 1);
+    Classificacao jogo43 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: " SC Covilhã",
+        pontos: 3,
+        jornada: 1);
+    Classificacao jogo44 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "S.C. Farense",
+        pontos: 3,
+        jornada: 1);
+    Classificacao jogo45 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "FC Porto B",
+        pontos: 0,
+        jornada: 1);
+    Classificacao jogo46 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "SL Benfica B",
+        pontos: 1,
+        jornada: 1);
+    Classificacao jogo47 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "Nacional", pontos: 0, jornada: 1);
+    Classificacao jogo48 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "B SAD", pontos: 0, jornada: 1);
+    Classificacao jogo49 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Académico de Viseu FC",
+        pontos: 1,
+        jornada: 2);
+    Classificacao jogo50 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Estrela Amadora",
+        pontos: 2,
+        jornada: 2);
+    Classificacao jogo51 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: " SC Covilhã",
+        pontos: 3,
+        jornada: 2);
+    Classificacao jogo52 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "S.C. Farense",
+        pontos: 4,
+        jornada: 2);
+    Classificacao jogo53 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "FC Porto B",
+        pontos: 3,
+        jornada: 2);
+    Classificacao jogo54 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "SL Benfica B",
+        pontos: 2,
+        jornada: 2);
+    Classificacao jogo55 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "Nacional", pontos: 3, jornada: 2);
+    Classificacao jogo56 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "B SAD", pontos: 0, jornada: 2);
+    Classificacao jogo57 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Académico de Viseu FC",
+        pontos: 2,
+        jornada: 3);
+    Classificacao jogo58 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Estrela Amadora",
+        pontos: 5,
+        jornada: 3);
+    Classificacao jogo59 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: " SC Covilhã",
+        pontos: 4,
+        jornada: 3);
+    Classificacao jogo60 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "S.C. Farense",
+        pontos: 5,
+        jornada: 3);
+    Classificacao jogo61 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "FC Porto B",
+        pontos: 6,
+        jornada: 3);
+    Classificacao jogo62 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "SL Benfica B",
+        pontos: 2,
+        jornada: 3);
+    Classificacao jogo63 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "Nacional", pontos: 3, jornada: 3);
+    Classificacao jogo64 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "B SAD", pontos: 1, jornada: 3);
+    Classificacao jogo65 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Académico de Viseu FC",
+        pontos: 3,
+        jornada: 4);
+    Classificacao jogo66 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Estrela Amadora",
+        pontos: 6,
+        jornada: 4);
+    Classificacao jogo67 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: " SC Covilhã",
+        pontos: 4,
+        jornada: 4);
+    Classificacao jogo68 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "S.C. Farense",
+        pontos: 8,
+        jornada: 4);
+    Classificacao jogo69 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "FC Porto B",
+        pontos: 7,
+        jornada: 4);
+    Classificacao jogo70 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "SL Benfica B",
+        pontos: 3,
+        jornada: 4);
+    Classificacao jogo71 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "Nacional", pontos: 3, jornada: 4);
+    Classificacao jogo72 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "B SAD", pontos: 1, jornada: 4);
+    Classificacao jogo73 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Académico de Viseu FC",
+        pontos: 3,
+        jornada: 5);
+    Classificacao jogo74 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "Estrela Amadora",
+        pontos: 7,
+        jornada: 5);
+    Classificacao jogo75 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: " SC Covilhã",
+        pontos: 5,
+        jornada: 5);
+    Classificacao jogo76 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "S.C. Farense",
+        pontos: 6,
+        jornada: 5);
+    Classificacao jogo77 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "FC Porto B",
+        pontos: 7,
+        jornada: 5);
+    Classificacao jogo78 = Classificacao(
+        liga: "liga portugal 2",
+        nomeEquipa: "SL Benfica B",
+        pontos: 6,
+        jornada: 5);
+    Classificacao jogo79 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "Nacional", pontos: 3, jornada: 5);
+    Classificacao jogo80 = Classificacao(
+        liga: "liga portugal 2", nomeEquipa: "B SAD", pontos: 4, jornada: 5);
 
     classificacaoBox.putMany([
       jogo1,
@@ -198,6 +520,71 @@ class ObjectBox {
       jogo13,
       jogo14,
       jogo15,
+      jogo16,
+      jogo17,
+      jogo18,
+      jogo19,
+      jogo20,
+      jogo21,
+      jogo22,
+      jogo23,
+      jogo24,
+      jogo25,
+      jogo26,
+      jogo27,
+      jogo28,
+      jogo29,
+      jogo30,
+      jogo31,
+      jogo32,
+      jogo33,
+      jogo34,
+      jogo35,
+      jogo36,
+      jogo37,
+      jogo38,
+      jogo39,
+      jogo40,
+      jogo41,
+      jogo42,
+      jogo43,
+      jogo44,
+      jogo45,
+      jogo46,
+      jogo47,
+      jogo48,
+      jogo49,
+      jogo50,
+      jogo51,
+      jogo52,
+      jogo53,
+      jogo54,
+      jogo55,
+      jogo56,
+      jogo57,
+      jogo58,
+      jogo59,
+      jogo60,
+      jogo61,
+      jogo62,
+      jogo63,
+      jogo64,
+      jogo65,
+      jogo66,
+      jogo67,
+      jogo68,
+      jogo69,
+      jogo70,
+      jogo71,
+      jogo72,
+      jogo73,
+      jogo74,
+      jogo75,
+      jogo76,
+      jogo77,
+      jogo78,
+      jogo79,
+      jogo80
     ]);
   }
 
@@ -213,7 +600,7 @@ class ObjectBox {
     Equipa equipa9 = Equipa("Gil Vicente FC");
     Equipa equipa10 = Equipa("Moreirense FC");
     Equipa equipa11 = Equipa("CD Santa Clara");
-    Equipa equipa12 = Equipa("CD Tondela");
+    Equipa equipa12 = Equipa("Marítimo M.");
     Equipa equipa13 = Equipa("CS Marítimo");
     Equipa equipa14 = Equipa("Portimonense SC");
     Equipa equipa15 = Equipa("Farense");

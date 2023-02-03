@@ -155,33 +155,33 @@ final _entities = <ModelEntity>[
       relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[]),
   ModelEntity(
-      id: const IdUid(5, 6296976720076639793),
+      id: const IdUid(5, 3261633347440838013),
       name: 'Classificacao',
-      lastPropertyId: const IdUid(5, 1266428253722699193),
+      lastPropertyId: const IdUid(6, 8077557861308335512),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 817473724711005611),
+            id: const IdUid(1, 3601493942002101230),
             name: 'id',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 5840656900074599561),
+            id: const IdUid(2, 4829736046442035921),
             name: 'liga',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 5560190240475915904),
+            id: const IdUid(3, 5695114131003981800),
             name: 'nomeEquipa',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(4, 4428925313262850658),
+            id: const IdUid(4, 2197112126356310430),
             name: 'pontos',
             type: 6,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 1266428253722699193),
+            id: const IdUid(6, 8077557861308335512),
             name: 'jornada',
             type: 6,
             flags: 0)
@@ -210,7 +210,7 @@ Future<Store> openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(5, 6296976720076639793),
+      lastEntityId: const IdUid(5, 3261633347440838013),
       lastIndexId: const IdUid(7, 4759506710432874446),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
@@ -234,7 +234,8 @@ ModelDefinition getObjectBoxModel() {
         8891470639353705203,
         6037669145669319941,
         6439827549941111654,
-        7944107839922393618
+        7944107839922393618,
+        8892422805912889241
       ],
       retiredRelationUids: const [],
       modelVersion: 5,
@@ -401,12 +402,12 @@ ModelDefinition getObjectBoxModel() {
         objectToFB: (Classificacao object, fb.Builder fbb) {
           final ligaOffset = fbb.writeString(object.liga);
           final nomeEquipaOffset = fbb.writeString(object.nomeEquipa);
-          fbb.startTable(6);
+          fbb.startTable(7);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, ligaOffset);
           fbb.addOffset(2, nomeEquipaOffset);
           fbb.addInt64(3, object.pontos);
-          fbb.addInt64(4, object.jornada);
+          fbb.addInt64(5, object.jornada);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -423,7 +424,7 @@ ModelDefinition getObjectBoxModel() {
               pontos:
                   const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0),
               jornada:
-                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0));
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0));
 
           return object;
         })
