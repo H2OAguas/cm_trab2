@@ -7,6 +7,6 @@ Para inicializar a base de dados, executar no terminal:
 
 Para atualizar dados, executar no terminal:
 
--flutter clean
--flutter pub get
--flutter pub run build_runner build --delete-confliting-outputs
+- flutter clean
+- flutter pub get
+- flutter pub run build_runner build --delete-confliting-outputs
